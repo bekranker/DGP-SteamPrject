@@ -25,7 +25,6 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        print(_inputHandler.JumpInput);
         Jump();
     }
 
