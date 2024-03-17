@@ -19,4 +19,9 @@ public class Grounded : MonoBehaviour
         Collider2D col = Physics2D.OverlapBox(CheckPoint.position, CheckSize, 0, Layer);
         return col != null ? col.gameObject : null;
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(CheckPoint.position, CheckSize);
+    }
 }

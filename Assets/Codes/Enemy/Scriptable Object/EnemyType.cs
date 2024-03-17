@@ -9,4 +9,6 @@ public class EnemyType : ScriptableObject
     public int Health;
     public int Damage;
     public int Speed;
+    public float DistanceToPlayer;
+    public float DistanceToCombat;
 }

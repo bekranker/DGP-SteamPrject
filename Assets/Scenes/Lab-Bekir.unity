@@ -367,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 1094792051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: -0.289, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -682,9 +682,14 @@ GameObject:
   - component: {fileID: 1778048918}
   - component: {fileID: 1778048919}
   - component: {fileID: 1778048921}
-  - component: {fileID: 1778048920}
+  - component: {fileID: 1778048927}
   - component: {fileID: 1778048922}
-  m_Layer: 0
+  - component: {fileID: 1778048925}
+  - component: {fileID: 1778048924}
+  - component: {fileID: 1778048923}
+  - component: {fileID: 1778048928}
+  - component: {fileID: 1778048920}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +705,7 @@ Transform:
   m_GameObject: {fileID: 1778048916}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15249099, y: -0.22497582, z: 0}
+  m_LocalPosition: {x: 0, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -769,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckPoint: {fileID: 1094792052}
-  CheckSize: {x: 1, y: 0.1}
+  CheckSize: {x: 0.91, y: 0.1}
   CheckRadius: 0.1
   Layer:
     serializedVersion: 2
@@ -799,8 +804,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &1778048922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,8 +818,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bdcf81ec070c547bcc264a72f09eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: {fileID: 11400000, guid: 2eea10a1c7bad14479d28761ea8ca13f, type: 2}
-  CurrentHealt: 0
+  EnemyT: {fileID: 11400000, guid: 2eea10a1c7bad14479d28761ea8ca13f, type: 2}
+  Movement: {fileID: 1778048925}
+  Combat: {fileID: 1778048924}
+  Patroll: {fileID: 1778048923}
+--- !u!114 &1778048923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778048916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aec6ae1dfe06234a9a78522d352008e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1778048924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778048916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285df1451f3dea841980db8c76c5880e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1778048925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778048916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ab7705df3834541a29dd9febc3206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 1778048922}
+  _grounded: {fileID: 1778048920}
+--- !u!95 &1778048927
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778048916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1778048928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778048916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f221e94f11e4494a980290f58f9fa98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1778048927}
+  _enemy: {fileID: 1778048922}
+  _enemyMovement: {fileID: 1778048925}
+  _enemyCombat: {fileID: 1778048924}
+  _enemyPatrol: {fileID: 1778048923}
 --- !u!114 &1968045319 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3673277908719383727, guid: 7fd34404066ce4c40a65c6a088af1720, type: 3}
@@ -895,6 +978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 823041015222653113, guid: ba58fdce611c63543a50fdb423d4cc64, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4100394640221807576, guid: ba58fdce611c63543a50fdb423d4cc64, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.37
@@ -955,7 +1042,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1209142939}
+  - {fileID: 1612484929}
   - {fileID: 4326531295351151500}
   - {fileID: 2729963202857935859}
-  - {fileID: 1612484929}
   - {fileID: 1778048918}
