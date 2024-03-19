@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, IDamage
     public EnemyMovement Movement;
     public EnemyCombat Combat;
     public EnemyPatroll Patroll;
-
+    public Grounded Ground;
 
     public float CurrentHealt {get; set;}
     public static event Action OnHitAction, OnDeadAction;
