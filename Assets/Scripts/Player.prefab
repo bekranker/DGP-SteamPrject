@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 4760234133627566400}
   - component: {fileID: 1322965990566276342}
   - component: {fileID: 2480826488544662264}
-  - component: {fileID: 7876619774628993328}
   - component: {fileID: 1942254016481759819}
   - component: {fileID: 7066464083696941687}
   m_Layer: 6
@@ -248,7 +247,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6215065301196491761}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 7cd774f1cab18954ab27d36691ceb528, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -311,27 +310,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7876619774628993328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215065301196491761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b25879a85aef4049811869e47d814b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: ea7b21d3ae0552244905e6bb89451870, type: 2}
-  _groundCheckPoint: {fileID: 631434007339032666}
-  _groundCheckSize: {x: 0.49, y: 0.03}
-  _frontWallCheckPoint: {fileID: 1336664152923763532}
-  _backWallCheckPoint: {fileID: 8404632547678049166}
-  _wallCheckSize: {x: 0.5, y: 1}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &1942254016481759819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: ea7b21d3ae0552244905e6bb89451870, type: 2}
   RB: {fileID: 2480826488544662264}
+  _inputHandler: {fileID: 0}
 --- !u!114 &7066464083696941687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +347,7 @@ MonoBehaviour:
   _wallCheckSize: {x: 0.5, y: 1}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8
   RB: {fileID: 2480826488544662264}
 --- !u!1 &7028321206447467136
 GameObject:
