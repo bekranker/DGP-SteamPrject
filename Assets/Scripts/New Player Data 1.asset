@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5759d6a660e3ac14dbd9a801bf9d7627, type: 3}
+  m_Name: New Player Data 1
+  m_EditorClassIdentifier: 
+  gravityStrength: -0.41731805
+  gravityScale: 0.013910602
+  fallGravityMult: 1.51
+  maxFallSpeed: 2.54
+  fastFallGravityMult: 0
+  maxFastFallSpeed: 0
+  runMaxSpeed: 4.23
+  runAcceleration: 3.1
+  runAccelAmount: 36.643024
+  runDecceleration: 0.01
+  runDeccelAmount: 0.118203305
+  accelInAir: 0
+  deccelInAir: 0
+  doConserveMomentum: 1
+  jumpHeight: 3.19
+  jumpTimeToApex: 3.91
+  jumpForce: 1.6317136
+  jumpCutGravityMult: 4.97
+  jumpHangGravityMult: 0.033863112
+  jumpHangTimeThreshold: 4.38
+  jumpHangAccelerationMult: 3.81
+  jumpHangMaxSpeedMult: 4.62
+  wallJumpForce: {x: 4.63, y: 4.5}
+  wallJumpRunLerp: 0
+  wallJumpTime: 0.19594717
+  doTurnOnWallJump: 0
+  slideSpeed: 7.78
+  slideAccel: 5.4
+  coyoteTime: 0.033866048
+  jumpInputBufferTime: 0.05035281
+  dashAmount: 0
+  dashSpeed: 0
+  dashSleepTime: 0
+  dashAttackTime: 0
+  dashEndTime: 0
+  dashEndSpeed: {x: 0, y: 0}
+  dashEndRunLerp: 0
+  dashRefillTime: 0
+  dashInputBufferTime: 0
