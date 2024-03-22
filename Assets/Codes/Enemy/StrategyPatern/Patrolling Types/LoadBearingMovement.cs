@@ -65,21 +65,22 @@ public class LoadBearingMovement : Patrolling
         GameObject theGround = grounded.MyGround();
         BoxCollider2D groundCollider = theGround.GetComponent<BoxCollider2D>();
         float boundX = groundCollider.bounds.extents.x;
-        int boundLeft = (int)(boundX - theGround.transform.position.x);
-        int boundRight = (int)(boundX + theGround.transform.position.x);
+        float boundLeft = (theGround.transform.position.x - boundX);
+        float boundRight = (theGround.transform.position.x + boundX);
 
-        int randPointLeft = Random.Range(boundRight - 1, boundLeft + 1);
-        float farPoint = FarPoint(enemy.transform.position, boundLeft, boundRight) - .5f;
-        //float randPointRight = 
+
+        //random point veriyor ama ilk nokta ile aynı olabiliyor ve degerler arasi ufak farklar oluyor
+        //int randPointLeft = Random.Range(boundRight - 1, boundLeft + 1);
+        float farPoint = FarPoint(enemy.transform.position, boundLeft, boundRight);
 
         targetPoint = new Vector3(
-            randPointLeft,
+            farPoint,
             enemy.transform.position.y,
             enemy.transform.position.z);
 
         return targetPoint;
     }
-    private float FarPoint(Vector2 enemyPosition, int boundLeft, int boundRight)
+    private float FarPoint(Vector2 enemyPosition, float boundLeft, float boundRight)
     {
         if (Vector2.Distance(
                 enemyPosition,
@@ -90,9 +91,9 @@ public class LoadBearingMovement : Patrolling
                 new Vector2(boundRight, enemyPosition.y))
             )
         {
-            return boundRight;
+            return boundLeft;
         }
         else
-            return boundLeft;
+            return boundRight;
     }
 }
