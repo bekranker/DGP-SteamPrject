@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     public PlayerData Data;
     public float LastOnGroundTime { get; private set; }
     [SerializeField] Rigidbody2D RB;
+	[SerializeField] InputHandler _inputHandler;
     private Vector2 _moveInput;
     public bool IsFacingRight { get; private set; }
     void Start()
@@ -16,8 +17,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         #region INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		_moveInput.x = _inputHandler.MoveInput.x;
+		_moveInput.y = _inputHandler.MoveInput.y;
     
 		#endregion
         

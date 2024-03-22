@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 	#region COMPONENTS
     public Rigidbody2D RB { get; private set; } // get set olayı bu özellik dışarıdan okunabilir fakat tanımlandığı sınıf tarafından değişiklik yapılabilir.
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
-	public PlayerAnimator AnimHandler { get; private set; }
 	#endregion
 	// const değeri hiç bir yerde değiştirilemez yapıyor.
 	//readonly
@@ -81,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
-		AnimHandler = GetComponent<PlayerAnimator>();
 	}
 
 	private void Start()
@@ -131,11 +129,6 @@ public class PlayerMovement : MonoBehaviour
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
 			{
-				if(LastOnGroundTime < -0.1f)
-                {
-					AnimHandler.justLanded = true;
-                }
-
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
             }		
 
@@ -184,8 +177,6 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpCut = false;
 				_isJumpFalling = false;
 				Jump();
-
-				AnimHandler.startedJumping = true;
 			}
 			//WALL JUMP
 			else if (CanWallJump() && LastPressedJumpTime > 0)

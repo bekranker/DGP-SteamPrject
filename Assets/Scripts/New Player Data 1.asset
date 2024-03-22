@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Player Data 1
   m_EditorClassIdentifier: 
   gravityStrength: -0.41731805
-  gravityScale: 0.013910602
+  gravityScale: 0.020865902
   fallGravityMult: 1.51
   maxFallSpeed: 2.54
   fastFallGravityMult: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
   runAccelAmount: 36.643024
   runDecceleration: 0.01
   runDeccelAmount: 0.118203305
-  accelInAir: 0
-  deccelInAir: 0
+  accelInAir: 0.14
+  deccelInAir: 0.46
   doConserveMomentum: 1
   jumpHeight: 3.19
   jumpTimeToApex: 3.91
@@ -50,4 +50,4 @@ MonoBehaviour:
   dashEndSpeed: {x: 0, y: 0}
   dashEndRunLerp: 0
   dashRefillTime: 0
-  dashInputBufferTime: 0
+  dashInputBufferTime: 0.01

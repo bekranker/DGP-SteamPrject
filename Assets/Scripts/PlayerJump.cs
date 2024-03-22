@@ -29,7 +29,6 @@ public class PlayerJump : MonoBehaviour
 	[SerializeField] private Transform _backWallCheckPoint;
 	[SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
     #endregion
-    public PlayerAnimator AnimHandler { get; private set; }
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
