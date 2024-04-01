@@ -18,6 +18,6 @@ MonoBehaviour:
   TriggerZone: 3.6
   DistanceToPlayer: 2
   DistanceToCombat: 2
-  PatrollDelay: 3.5
+  PatrollDelay: 1.7
   PatrollMovementSpeed: 2
   PatrollType: {fileID: 8715644442350273874, guid: 57299c0f67216684a99136d6fa114e8d, type: 3}
