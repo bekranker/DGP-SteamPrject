@@ -8,6 +8,7 @@ public class LocomotionState : BaseState
 
     public override void OnEnter()
     {
+        _enemy.Alerted = false; 
         Debug.Log("Entered State: Locomotion");
         base.OnEnter();
     }

@@ -121,6 +121,29 @@ public class EnemyType : ScriptableObject
     }
 
 
+    [PropertySpace]
+    [ShowInInspector, BoxGroup("ButtonsAlertTriggerDelay", ShowLabel = false)] 
+    [Range(0.1f, 20)] public float AlertTriggerDelay;
+
+
+    [PropertySpace]
+    [BoxGroup("ButtonsAlertTriggerDelay", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Decrease Alert Trigger Delay")]
+    private void ButtonOnLeftAlertTriggerDelay()
+    {
+        AlertTriggerDelay--;
+        // Sol tarafta görünecek buton işlemleri
+    }
+
+    [PropertySpace]
+    [BoxGroup("ButtonsAlertTriggerDelay", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Increase Alert Trigger Delay")]
+    private void ButtonOnRightAlertTriggerDelay()
+    {
+        AlertTriggerDelay++;
+        // Sağ tarafta görünecek buton işlemleri
+    }
+
 
     [PropertySpace]
     [ShowInInspector, BoxGroup("Component", ShowLabel = false)]

@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 	[SerializeField] InputHandler _inputHandler;
     private Vector2 _moveInput;
     public bool IsFacingRight { get; private set; }
+	public float MoveDirection;
+
     void Start()
     {
         IsFacingRight = true;
@@ -21,6 +23,8 @@ public class PlayerMove : MonoBehaviour
 		_moveInput.y = _inputHandler.MoveInput.y;
     
 		#endregion
+
+		MoveDirection = RB.velocity.x;
         
     }
     void FixedUpdate()

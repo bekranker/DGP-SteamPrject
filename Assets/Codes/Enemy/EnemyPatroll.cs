@@ -16,7 +16,7 @@ public class EnemyPatroll : MonoBehaviour
     }
     public bool CanPatroll()
     {
-        return true;
+        return (!_enemy.Movement.CanFollow());
     }
 
     public bool SameDirection()

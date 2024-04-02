@@ -13,10 +13,11 @@ public class Enemy : MonoBehaviour, IDamage
 
     public float CurrentHealt {get; set;}
     public static event Action OnHitAction, OnDeadAction;
-
+    public bool Alerted;
 
     void Awake()
     {
+        Alerted = false;
         CurrentHealt = EnemyT.Health;
     }
 

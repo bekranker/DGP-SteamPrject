@@ -55,6 +55,7 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         JumpInput = _jumpAction.WasPerformedThisFrame();
+        AttackInput = _combatAction.WasPerformedThisFrame();
     }
     void InputRegistration()
     {
@@ -64,8 +65,8 @@ public class InputHandler : MonoBehaviour
         // _jumpAction.performed += ctx => JumpInput = true;
         // _jumpAction.canceled += ctx => JumpInput = false;
 
-        _combatAction.performed += ctx => AttackInput = true;
-        _combatAction.canceled += ctx => AttackInput = false;
+        // _combatAction.performed += ctx => AttackInput = true;
+        // _combatAction.canceled += ctx => AttackInput = false;
     }
 
 

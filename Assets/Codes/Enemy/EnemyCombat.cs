@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-    private Enemy _enemy;
-    private EnemyMovement _enemyMovement;
-    private EnemyPatroll _enemyPatroll;
+    [SerializeField] private Enemy _enemy;
+    [SerializeField] private EnemyMovement _enemyMovement;
+    [SerializeField] private EnemyPatroll _enemyPatroll;
 
-    void Awake()
+    private Transform _player;
+
+    void Start()
     {
-        _enemy = GetComponent<Enemy>();
+        _player = GameObject.FindWithTag("Player").transform;
     }
+
     public void AttackToPlayer()
     {
         Debug.Log("AttackToPlayer");
     }
     public bool CanCombat()
-    {
-        return false || true;
+    { 
+        //eger ki dusman kombata girmeden once alerted olmasi kesin gerekiyorsa buraya _enemy.Alerted bool kontrolu konmali 
+        return !_enemyMovement.CanFollow();
     }
 }

@@ -22,10 +22,6 @@ public class StateMachineHandler : MonoBehaviour
     void Awake()
     {
         
-
-
-
-
         _stateMachine = new StateMachine();
         var alertState = new AlertState(_enemy, _animator);
         var patrollState = new PatrollState(_enemy, _animator);
@@ -34,17 +30,17 @@ public class StateMachineHandler : MonoBehaviour
         var locomotionState = new LocomotionState(_enemy, _animator);
 
         
-        At(alertState, followState, new FuncPredicate(() => _enemyMovement.CanFollow()));
+        At(locomotionState, patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll() && !_enemy.Alerted));
+        Any(alertState, new FuncPredicate(() => _enemyMovement.CanFollow() && !_enemy.Alerted));
+        At(alertState, followState, new FuncPredicate(() => _enemyMovement.CanFollow() && _enemy.Alerted));
         At(followState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()));
-        At(alertState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()));
-        Any(patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll()));
-        Any(alertState, new FuncPredicate(() => _enemyMovement.PlayerFarFromUs()));
-        Any(locomotionState, new FuncPredicate(() => 
-        {
-            return false;
-        }));
+        At(alertState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat() && _enemy.Alerted));
+        At(combatState, followState, new FuncPredicate(() => _enemy.Alerted && !_enemyCombat.CanCombat()));
         
-        _stateMachine.SetState(patrollState);
+
+        Any(locomotionState, new FuncPredicate(() => !_enemyCombat.CanCombat() && !_enemyMovement.CanFollow() && _enemy.Alerted));
+        
+        _stateMachine.SetState(locomotionState);
     }
 
     void At(IState From, IState To, IPredicie condition) => _stateMachine.AddTransition(From, To, condition);
