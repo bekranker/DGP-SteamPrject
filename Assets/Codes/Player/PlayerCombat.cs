@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private InputHandler _inputHandler;
-
+    [SerializeField] private PlayerMoovee _move;
 
     void Update()
     {
-        
+        Attack();
     }
 
     private void Attack()
@@ -19,5 +19,7 @@ public class PlayerCombat : MonoBehaviour
             
         }
     }
+
+
 
 }

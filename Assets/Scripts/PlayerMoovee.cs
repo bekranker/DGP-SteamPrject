@@ -9,7 +9,7 @@ public class PlayerMoovee : MonoBehaviour
     public bool IsFacingRight { get; private set; }
     private Vector2 _moveInput;
     [SerializeField] InputHandler _inputHandler;
-    public float MoveDirection;
+    public float MoveDirection{ get; private set; }
     public float LastOnGroundTime { get; private set; }
 
     private void Awake()

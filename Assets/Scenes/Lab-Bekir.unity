@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86965464108735653, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: _inputHandler
+      value: 
+      objectReference: {fileID: 641728251}
     - target: {fileID: 1768066174799941770, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -188,17 +192,10 @@ PrefabInstance:
       value: 136
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4531452748215038770, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-    - {fileID: 7066464083696941687, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6215065301196491761, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 195710271}
-    - targetCorrespondingSourceObject: {fileID: 6215065301196491761, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 195710272}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
 --- !u!1 &63158597
 GameObject:
@@ -284,42 +281,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &195710265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6215065301196491761, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-  m_PrefabInstance: {fileID: 46599635}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &195710271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195710265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3d687debc4b914c8014d5d13ab3030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CheckPoint: {fileID: 655075509}
-  CheckSize: {x: 1, y: 0.06}
-  CheckRadius: 0.52
-  Layer:
-    serializedVersion: 2
-    m_Bits: 8
---- !u!114 &195710272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195710265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bb3a3595ffb1e49955b0be84793066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputHandler: {fileID: 641728251}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,11 +745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75928d2df03615647bd2227209ebdef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &655075509 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 631434007339032666, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-  m_PrefabInstance: {fileID: 46599635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788188526
 GameObject:
   m_ObjectHideFlags: 0
