@@ -33,5 +33,8 @@ public class EnemyMovement : MonoBehaviour
     {
         return Vector2.Distance(transform.position, _player.transform.position) > _enemy.EnemyT.DistanceToPlayer;
     }
-    
+    public bool PlayerCloseFromUs()
+    {
+        return Vector2.Distance(transform.position, _player.transform.position) <= _enemy.EnemyT.DistanceToPlayer;
+    }
 }

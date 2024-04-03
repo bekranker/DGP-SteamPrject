@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &534068914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +577,7 @@ MonoBehaviour:
   Patroll: {fileID: 534068916}
   Ground: {fileID: 534068914}
   Alerted: 0
+  Locomotion: 0
 --- !u!95 &534068920
 Animator:
   serializedVersion: 5
@@ -1184,6 +1185,7 @@ MonoBehaviour:
   Patroll: {fileID: 1881679582}
   Ground: {fileID: 1881679580}
   Alerted: 0
+  Locomotion: 0
 --- !u!95 &1881679586
 Animator:
   serializedVersion: 5

@@ -30,15 +30,15 @@ public class StateMachineHandler : MonoBehaviour
         var locomotionState = new LocomotionState(_enemy, _animator);
 
         
-        At(locomotionState, patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll() && !_enemy.Alerted));
+        At(locomotionState, patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll() && !_enemy.Alerted && _enemy.Locomotion));
         Any(alertState, new FuncPredicate(() => _enemyMovement.CanFollow() && !_enemy.Alerted));
         At(alertState, followState, new FuncPredicate(() => _enemyMovement.CanFollow() && _enemy.Alerted));
-        At(followState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()));
+        At(followState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()  && _enemyMovement.PlayerCloseFromUs()));
         At(alertState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat() && _enemy.Alerted));
         At(combatState, followState, new FuncPredicate(() => _enemy.Alerted && !_enemyCombat.CanCombat()));
         
 
-        Any(locomotionState, new FuncPredicate(() => !_enemyCombat.CanCombat() && !_enemyMovement.CanFollow() && _enemy.Alerted));
+        Any(locomotionState, new FuncPredicate(() => (!_enemyMovement.CanFollow() && !_enemyMovement.PlayerCloseFromUs()) && _enemy.Alerted));
         
         _stateMachine.SetState(locomotionState);
     }
