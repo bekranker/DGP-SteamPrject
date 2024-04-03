@@ -326,7 +326,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: ea7b21d3ae0552244905e6bb89451870, type: 2}
   _inputHandler: {fileID: 0}
-  MoveDirection: 0
 --- !u!114 &8099256757520104200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +377,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bb3a3595ffb1e49955b0be84793066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _length: {x: 1, y: 1.7}
+  _hitMaskes:
+    serializedVersion: 2
+    m_Bits: 0
   _inputHandler: {fileID: 0}
+  _move: {fileID: 2995404182349613641}
 --- !u!1 &7028321206447467136
 GameObject:
   m_ObjectHideFlags: 0

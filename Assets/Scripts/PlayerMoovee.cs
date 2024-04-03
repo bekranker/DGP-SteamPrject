@@ -29,7 +29,7 @@ public class PlayerMoovee : MonoBehaviour
         _moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
-        MoveDirection = Mathf.Sign(RB.velocity.x);
+        MoveDirection = IsFacingRight ? 1 : -1;
     }
     void FixedUpdate()
     {
