@@ -22,7 +22,6 @@ public class PlayerJumppp : MonoBehaviour
 	
     [Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
-	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
 	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
 	[Space(5)]
 	[SerializeField] private Transform _frontWallCheckPoint;
@@ -61,27 +60,27 @@ public class PlayerJumppp : MonoBehaviour
         if (!IsJumping)
 		{
 			//Ground Check
-			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
+			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
 			{
 				if(LastOnGroundTime < -0.1f)
                 {
 					//AnimHandler.justLanded = true;
                 }
 
-				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
+				LastOnGroundTime = Data.coyoteTime; 
             }		
 
-			//Right Wall Check
+			
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)) //facing yazamadığımız için
 					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )) && !IsWallJumping)
 				LastOnWallRightTime = Data.coyoteTime;
 
-			//Right Wall Check
+			
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )
 				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )) && !IsWallJumping)
 				LastOnWallLeftTime = Data.coyoteTime;
 
-			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
+			
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
 		}
     {
@@ -103,7 +102,7 @@ public class PlayerJumppp : MonoBehaviour
 
 			_isJumpFalling = false;
 		}
-        //Jump
+        
 		if (CanJump() && LastPressedJumpTime > 0)
 		{
 			IsJumping = true;
@@ -112,9 +111,9 @@ public class PlayerJumppp : MonoBehaviour
 			_isJumpFalling = false;
 			Jump();
 
-			//AnimHandler.startedJumping = true;
+			
 		}
-			//WALL JUMP
+			
 		else if (CanWallJump() && LastPressedJumpTime > 0)
 		{
 			IsWallJumping = true;
@@ -129,14 +128,13 @@ public class PlayerJumppp : MonoBehaviour
     }
          if (RB.velocity.y < 0 && _moveInput.y < 0)
 		{
-			//Much higher gravity if holding down
+			
 			SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
-			//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
 			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 		}
 		else if (_isJumpCut)
 		{
-			//Higher gravity if jump button released
+			
 			SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
 			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 		}
@@ -146,23 +144,17 @@ public class PlayerJumppp : MonoBehaviour
 		}
 		else if (RB.velocity.y < 0)
 		{
-			//Higher gravity if falling
+			
 			SetGravityScale(Data.gravityScale * Data.fallGravityMult);
-			//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
 			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 		}
 		else
 		{
-			//Default gravity if standing on a platform or moving upwards
 			SetGravityScale(Data.gravityScale);
 		}
         
     }
-    private void FixedUpdate() 
-    {
-       //if (IsWallJumping)
-            //Run(Data.wallJumpRunLerp); 
-    }
+
     public void OnJumpInput()
 	{
 		LastPressedJumpTime = Data.jumpInputBufferTime;
@@ -178,14 +170,11 @@ public class PlayerJumppp : MonoBehaviour
 	}
     private void Jump()
 	{
-		//Ensures we can't call Jump multiple times from one press
+		
 		LastPressedJumpTime = 0;
 		LastOnGroundTime = 0;
 
 		#region Perform Jump
-		//We increase the force applied if we are falling
-		//This means we'll always feel like we jump the same amount 
-		//(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
 		float force = Data.jumpForce;
 		if (RB.velocity.y < 0)
 			force -= RB.velocity.y;
@@ -195,7 +184,7 @@ public class PlayerJumppp : MonoBehaviour
 	}
     private void WallJump(int dir)
 	{
-		//Ensures we can't call Wall Jump multiple times from one press
+		
 		LastPressedJumpTime = 0;
 		LastOnGroundTime = 0;
 		LastOnWallRightTime = 0;
@@ -203,16 +192,15 @@ public class PlayerJumppp : MonoBehaviour
 
 		#region Perform Wall Jump
 		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
-		force.x *= dir; //apply force in opposite direction of wall
+		force.x *= dir;
 
 		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
 			force.x -= RB.velocity.x;
 
-		if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
+		if (RB.velocity.y < 0) 
 			force.y -= RB.velocity.y;
 
-		//Unlike in the run we want to use the Impulse mode.
-		//The default mode will apply are force instantly ignoring masss
+		
 		RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
 	}
