@@ -132,10 +132,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 86965464108735653, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
-      propertyPath: _pushForce
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 86965464108735653, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: _inputHandler
       value: 
       objectReference: {fileID: 641728251}
@@ -446,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &534068914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +537,7 @@ MonoBehaviour:
   Combat: {fileID: 534068917}
   Patroll: {fileID: 534068916}
   Ground: {fileID: 534068914}
-  _rb: {fileID: 0}
+  _rb: {fileID: 534068921}
 --- !u!95 &534068920
 Animator:
   serializedVersion: 5
@@ -1048,7 +1044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1881679580
 MonoBehaviour:
   m_ObjectHideFlags: 0

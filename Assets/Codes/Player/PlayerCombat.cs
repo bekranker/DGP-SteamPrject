@@ -6,6 +6,11 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
+    [Header("Animation Properties")]
+    [SerializeField] private List<AnimationClip> _animations = new List<AnimationClip>();
+    [SerializeField] private AnimationClip _idleClip;
+
+
     [Header("Raycast Properties")]
     [SerializeField] private Vector2 _length;
     [SerializeField] private LayerMask _hitMaskes;
@@ -16,6 +21,17 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerMoovee _move;
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private Animator _animator;
+
+
+    private int _animationCount;
+    private bool _canAttack;
+
+
+    void Awake()
+    {
+        _canAttack = true;
+    }
 
     void Update()
     {
@@ -24,10 +40,14 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
+        if (!_canAttack) return;
         if (_inputHandler.AttackInput)
         {
-            _move.CanMove = false;
+            
+            _canAttack = false;
             RaycastForAttack();
+            SetAnimation();
+            
         }
     }
     private void RaycastForAttack()
@@ -48,8 +68,14 @@ public class PlayerCombat : MonoBehaviour
                 damageable.OnHit(1, _move.MoveDirection, _pushForce);
             }
         });
+        if (hit2D.Length != 0)
+        {
+            _rb.velocity = Vector2.zero;
+            _rb.gravityScale = 0;
+            _move.CanMove = false;
+        }
         // Animasyon sonunda truelanicak
-        _move.CanMove = true;
+        
     }
     void OnDrawGizmos()
     {
@@ -57,4 +83,17 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.DrawWireCube(transform.position + (Vector3.right * _move.MoveDirection), _length); 
     }
 
+
+    void SetAnimation()
+    {
+        _animationCount = (_animationCount + 1 == _animations.Count) ? 0 : _animationCount + 1;
+        _animator.Play(_animations[_animationCount].name);
+    }
+    public void AnimationEnd()
+    {
+        _move.CanMove = true;
+        _canAttack = true;
+        _animator.Play(_idleClip.name);
+        _rb.gravityScale = 1;
+    }
 }
