@@ -381,8 +381,10 @@ MonoBehaviour:
   _hitMaskes:
     serializedVersion: 2
     m_Bits: 0
+  _pushForce: 0
   _inputHandler: {fileID: 0}
   _move: {fileID: 2995404182349613641}
+  _rb: {fileID: 2480826488544662264}
 --- !u!1 &7028321206447467136
 GameObject:
   m_ObjectHideFlags: 0

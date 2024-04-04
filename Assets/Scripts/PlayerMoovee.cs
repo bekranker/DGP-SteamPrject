@@ -11,9 +11,11 @@ public class PlayerMoovee : MonoBehaviour
     [SerializeField] InputHandler _inputHandler;
     public float MoveDirection{ get; private set; }
     public float LastOnGroundTime { get; private set; }
+	public bool CanMove { get; set; }
 
     private void Awake()
 	{
+		CanMove = true;
 		RB = GetComponent<Rigidbody2D>();
 	}
     private void Start()
@@ -37,7 +39,7 @@ public class PlayerMoovee : MonoBehaviour
     }
     private void Run(float lerpAmount)
 	{
-		
+		if(!CanMove) return;
 		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
 		
 		targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);

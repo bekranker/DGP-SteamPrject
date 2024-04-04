@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158f8a0c84344484faca8d7066bdcdf8, type: 3}
   m_Name: TypeTest
   m_EditorClassIdentifier: 
-  Health: 4
+  Health: 43
   Damage: 3
   Speed: 3
   TriggerZone: 3.6
@@ -20,5 +20,5 @@ MonoBehaviour:
   DistanceToCombat: 2
   PatrollDelay: 1.7
   PatrollMovementSpeed: 2
-  AlertTriggerDelay: 0.7
+  AlertTriggerDelay: 0.6
   PatrollType: {fileID: 8715644442350273874, guid: 57299c0f67216684a99136d6fa114e8d, type: 3}

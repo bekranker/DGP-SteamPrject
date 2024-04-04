@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IDamage
 {
-    void OnHit();
+    void OnHit(float damage, float direction, float pushForce);
     void OnDead();
 }

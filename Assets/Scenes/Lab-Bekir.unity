@@ -132,6 +132,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 86965464108735653, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: _pushForce
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 86965464108735653, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: _inputHandler
       value: 
       objectReference: {fileID: 641728251}
@@ -190,14 +194,6 @@ PrefabInstance:
     - target: {fileID: 6215065301196491761, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _inputHandler
-      value: 
-      objectReference: {fileID: 641728251}
-    - target: {fileID: 0}
-      propertyPath: _groundLayer.m_Bits
-      value: 136
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -545,8 +541,7 @@ MonoBehaviour:
   Combat: {fileID: 534068917}
   Patroll: {fileID: 534068916}
   Ground: {fileID: 534068914}
-  Alerted: 0
-  Locomotion: 0
+  _rb: {fileID: 0}
 --- !u!95 &534068920
 Animator:
   serializedVersion: 5
@@ -1053,7 +1048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1881679580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,8 +1143,7 @@ MonoBehaviour:
   Combat: {fileID: 1881679583}
   Patroll: {fileID: 1881679582}
   Ground: {fileID: 1881679580}
-  Alerted: 0
-  Locomotion: 0
+  _rb: {fileID: 1881679587}
 --- !u!95 &1881679586
 Animator:
   serializedVersion: 5
@@ -1187,7 +1181,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 244707404c2007b479f8b4f3ea2a5757, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

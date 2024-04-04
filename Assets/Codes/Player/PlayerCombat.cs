@@ -9,11 +9,13 @@ public class PlayerCombat : MonoBehaviour
     [Header("Raycast Properties")]
     [SerializeField] private Vector2 _length;
     [SerializeField] private LayerMask _hitMaskes;
+    [SerializeField] private float _pushForce;
 
 
     [Header("Components")]
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerMoovee _move;
+    [SerializeField] private Rigidbody2D _rb;
 
     void Update()
     {
@@ -24,6 +26,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (_inputHandler.AttackInput)
         {
+            _move.CanMove = false;
             RaycastForAttack();
         }
     }
@@ -36,9 +39,17 @@ public class PlayerCombat : MonoBehaviour
             if (hits.TryGetComponent(out IDamage damageable))
             {
                 //movement combat bitene kadar durmali
-                damageable.OnHit();
+
+                //fiziklisi burada
+                // _rb.AddForce(Mathf.Sign((hits.transform.position - transform.position).x) * 100 * Vector2.right * _pushForce);
+                
+                // pozisyon degisikligi yapilan versiyonu burada
+                transform.position += Vector3.right * _move.MoveDirection * _pushForce;
+                damageable.OnHit(1, _move.MoveDirection, _pushForce);
             }
         });
+        // Animasyon sonunda truelanicak
+        _move.CanMove = true;
     }
     void OnDrawGizmos()
     {
