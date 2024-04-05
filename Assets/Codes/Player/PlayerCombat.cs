@@ -24,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Animator _animator;
 
 
-    private int _animationCount;
+    private int _animCounter;
     private bool _canAttack;
 
 
@@ -86,8 +86,8 @@ public class PlayerCombat : MonoBehaviour
 
     void SetAnimation()
     {
-        _animationCount = (_animationCount + 1 == _animations.Count) ? 0 : _animationCount + 1;
-        _animator.Play(_animations[_animationCount].name);
+        _animator.Play(_animations[_animCounter].name);
+        _animCounter = (_animCounter + 1 >= _animations.Count) ? 0 : _animCounter + 1;
     }
     public void AnimationEnd()
     {

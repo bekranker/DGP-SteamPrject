@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Enemy
   - Player
-  - 
+  - FrontLight
   - 
   - 
   - 
@@ -44,6 +44,33 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back-0
+    uniqueID: 753181489
+    locked: 0
+  - name: Mid-0
+    uniqueID: 1160487559
+    locked: 0
+  - name: Front-0
+    uniqueID: 3163615693
+    locked: 0
+  - name: Rain
+    uniqueID: 599868639
+    locked: 0
+  - name: Ground
+    uniqueID: 1150305539
+    locked: 0
+  - name: Environment
+    uniqueID: 1188372249
+    locked: 0
   - name: Player
     uniqueID: 3449324443
+    locked: 0
+  - name: Front rain
+    uniqueID: 3752099209
+    locked: 0
+  - name: Fog
+    uniqueID: 2883490441
+    locked: 0
+  - name: Shadow
+    uniqueID: 3824777491
     locked: 0
