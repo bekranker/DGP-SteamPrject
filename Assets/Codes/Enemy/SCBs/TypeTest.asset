@@ -15,7 +15,7 @@ MonoBehaviour:
   Health: 43
   Damage: 3
   Speed: 3
-  TriggerZone: 3.6
+  TriggerZone: 0.5
   DistanceToPlayer: 2
   DistanceToCombat: 2
   PatrollDelay: 1.7
