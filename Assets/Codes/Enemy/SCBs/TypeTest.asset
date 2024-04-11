@@ -21,4 +21,5 @@ MonoBehaviour:
   PatrollDelay: 1.7
   PatrollMovementSpeed: 2
   AlertTriggerDelay: 0.6
+  CombatDelay: 1.23
   PatrollType: {fileID: 8715644442350273874, guid: 57299c0f67216684a99136d6fa114e8d, type: 3}

@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Grounded _grounded;
+    public Vector2 MoveDirection;
     private Transform _player;
 
     void Start()

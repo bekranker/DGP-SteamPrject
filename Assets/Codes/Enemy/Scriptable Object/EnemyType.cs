@@ -143,7 +143,28 @@ public class EnemyType : ScriptableObject
         AlertTriggerDelay++;
         // Sağ tarafta görünecek buton işlemleri
     }
+    [PropertySpace]
+    [ShowInInspector, BoxGroup("ButtonsCombatDelay", ShowLabel = false)] 
+    [Range(0.1f, 20)] public float CombatDelay;
 
+
+    [PropertySpace]
+    [BoxGroup("ButtonsCombatDelay", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Decrease Combat Delay")]
+    private void ButtonOnLeftCombatDelay()
+    {
+        CombatDelay--;
+        // Sol tarafta görünecek buton işlemleri
+    }
+
+    [PropertySpace]
+    [BoxGroup("ButtonsCombatDelay", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Increase Combat Delay")]
+    private void ButtonOnRightCombatDelay()
+    {
+        CombatDelay++;
+        // Sağ tarafta görünecek buton işlemleri
+    }
 
     [PropertySpace]
     [ShowInInspector, BoxGroup("Component", ShowLabel = false)]
