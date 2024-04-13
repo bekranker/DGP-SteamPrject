@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
-  _rotationMinMax: {x: -3, y: 3}
+  _rotationMultiplier: 2
   _target: {fileID: 985813753}
   _rotationParent: {fileID: 1909180560}
 --- !u!1 &1909180559

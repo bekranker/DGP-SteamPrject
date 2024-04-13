@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 
@@ -5,7 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     [Header("Propoeties")]
     [SerializeField, Range(0.05f, 10f)] private float _speed = 0.3f;
-    [SerializeField] private Vector2 _rotationMinMax;
+    [SerializeField] private float _rotationMultiplier;
 
     [Header("Components")]
     [SerializeField] private Transform _target;
@@ -14,6 +15,7 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         FollowSmoothly();
+        RotatinHandler();
     }
     private void FollowSmoothly()
     {
@@ -23,6 +25,7 @@ public class FollowCamera : MonoBehaviour
     }
     private void RotatinHandler()
     {
-        // _rotationParent.transform
+        var direction = Mathf.Sign(_target.position.x - transform.position.x);
+        _rotationParent.transform.DORotate(Vector3.up * direction * _rotationMultiplier, 0.2f);
     }
 }
