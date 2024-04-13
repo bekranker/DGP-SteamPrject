@@ -25,7 +25,15 @@ public class FollowCamera : MonoBehaviour
     }
     private void RotatinHandler()
     {
-        var direction = Mathf.Sign(_target.position.x - transform.position.x);
+        var direction = Sign(_target.position.x - transform.position.x);
         _rotationParent.transform.DORotate(Vector3.up * direction * _rotationMultiplier, 0.2f);
+    }
+    public static float Sign(float f)
+    {
+        if (f == 0f || Mathf.Abs(f) < 0.05f)
+        {
+            return 0f;
+        }
+        return (f > 0f) ? 1f : (-1f);
     }
 }
