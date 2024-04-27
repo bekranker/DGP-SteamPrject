@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5759d6a660e3ac14dbd9a801bf9d7627, type: 3}
   m_Name: New Player Data 1
   m_EditorClassIdentifier: 
-  gravityStrength: -52
-  gravityScale: 1.7333333
+  gravityStrength: -55.401665
+  gravityScale: 1.8467221
   fallGravityMult: 2
   maxFallSpeed: 18
   fastFallGravityMult: 1
   maxFastFallSpeed: 20
   runMaxSpeed: 4.85
   runAcceleration: 4.85
-  runAccelAmount: 51.340206
+  runAccelAmount: 50
   runDecceleration: 4.85
-  runDeccelAmount: 51.340206
+  runDeccelAmount: 50
   accelInAir: 1
   deccelInAir: 1
   doConserveMomentum: 0
-  jumpHeight: 6.5
-  jumpTimeToApex: 0.5
-  jumpForce: 26
+  jumpHeight: 1
+  jumpTimeToApex: 0.19
+  jumpForce: 10.526317
   jumpCutGravityMult: 3.5
   jumpHangGravityMult: 1
   jumpHangTimeThreshold: 0

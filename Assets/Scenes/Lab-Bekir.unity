@@ -160,6 +160,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2995404182349613641, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 169108675}
+    - target: {fileID: 2995404182349613641, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: _inputHandler
       value: 
       objectReference: {fileID: 641728251}
@@ -203,6 +207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5433585718657631463, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: _followCamera
+      value: 
+      objectReference: {fileID: 1571510471}
     - target: {fileID: 6215065301196491761, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -213,6 +221,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+--- !u!95 &169108675 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 543546840074035179, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+  m_PrefabInstance: {fileID: 46599635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,8 +572,8 @@ Transform:
   m_GameObject: {fileID: 1209142937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8527002, y: -4.5, z: 0}
-  m_LocalScale: {x: 10.077741, y: 1, z: 1}
+  m_LocalPosition: {x: 3.0532, y: -4.5, z: 0}
+  m_LocalScale: {x: 11.677078, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -656,9 +669,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
-  _rotationMultiplier: 2
+  _zoomSpeed: 0.1
+  _offset: {x: 0, y: 0, z: 0}
   _target: {fileID: 985813753}
   _rotationParent: {fileID: 1909180560}
+  _zoomParent: {fileID: 1073211759}
 --- !u!1 &1909180559
 GameObject:
   m_ObjectHideFlags: 0

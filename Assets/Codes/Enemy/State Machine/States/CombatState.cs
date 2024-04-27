@@ -30,6 +30,5 @@ public class CombatState : BaseState
             _counter = _enemy.EnemyT.CombatDelay;
             _animator.Play("Combat");
         }
-        Debug.Log(_counter);
     }
 }

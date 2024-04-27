@@ -43,11 +43,10 @@ public class PlayerCombat : MonoBehaviour
         if (!_canAttack) return;
         if (_inputHandler.AttackInput)
         {
-            
+            _move.CanMove = false;
             _canAttack = false;
             RaycastForAttack();
             SetAnimation();
-            
         }
     }
     private void RaycastForAttack()
@@ -72,7 +71,6 @@ public class PlayerCombat : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             _rb.gravityScale = 0;
-            _move.CanMove = false;
         }
         // Animasyon sonunda truelanicak
         
@@ -82,8 +80,6 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + (Vector3.right * _move.MoveDirection), _length); 
     }
-
-
     void SetAnimation()
     {
         _animator.Play(_animations[_animCounter].name);
@@ -95,5 +91,9 @@ public class PlayerCombat : MonoBehaviour
         _canAttack = true;
         _animator.Play(_idleClip.name);
         _rb.gravityScale = 1;
+    }
+    public void AnimationStart()
+    {
+        _move.CanMove = false;
     }
 }

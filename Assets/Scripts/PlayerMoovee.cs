@@ -9,6 +9,7 @@ public class PlayerMoovee : MonoBehaviour
     public bool IsFacingRight { get; private set; }
     private Vector2 _moveInput;
     [SerializeField] InputHandler _inputHandler;
+	[SerializeField] private Animator _animator;
     public float MoveDirection{ get; private set; }
     public float LastOnGroundTime { get; private set; }
 	public bool CanMove { get; set; }
@@ -26,8 +27,14 @@ public class PlayerMoovee : MonoBehaviour
     void Update()
     {
         if (_moveInput.x != 0)
+		{
 			CheckDirectionToFace(_moveInput.x > 0);
-            
+        	_animator.SetFloat("Move", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+		}
+		else
+		{
+        	_animator.SetFloat("Move", -1);
+		}
         _moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
@@ -39,8 +46,10 @@ public class PlayerMoovee : MonoBehaviour
     }
     private void Run(float lerpAmount)
 	{
-		if(!CanMove) return;
-		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+		print(CanMove);
+		if(CanMove)
+		{
+			float targetSpeed = _moveInput.x * Data.runMaxSpeed;
 		
 		targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
 
@@ -66,6 +75,12 @@ public class PlayerMoovee : MonoBehaviour
 		float movement = speedDif * accelRate;
 
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+		}
+		else
+		{
+			RB.velocity = Vector2.zero;
+		}
+		
 	}
     private void AirRun(ref float accelRate, ref float targetSpeed)// if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
     {
