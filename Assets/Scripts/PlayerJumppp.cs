@@ -19,7 +19,14 @@ public class PlayerJumppp : MonoBehaviour
 	private int _lastWallJumpDir;
     private Vector2 _moveInput;
     public float LastPressedJumpTime { get; private set; }
-	
+	public float LastPressedDashTime { get; private set; }
+	public bool IsDashing { get; private set; }
+	private int _dashesLeft;
+	private bool _dashRefilling;
+	private Vector2 _lastDashDir;
+	private bool _isDashAttacking;
+
+	[SerializeField] private PlayerMoovee _playerMove;
     [Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
 	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
@@ -44,6 +51,7 @@ public class PlayerJumppp : MonoBehaviour
 		LastOnWallTime -= Time.deltaTime;
 		LastOnWallRightTime -= Time.deltaTime;
 		LastOnWallLeftTime -= Time.deltaTime;
+		LastPressedDashTime -= Time.deltaTime;
 
 		LastPressedJumpTime -= Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
@@ -55,9 +63,12 @@ public class PlayerJumppp : MonoBehaviour
 		{
 			OnJumpUpInput();
 		}
-        
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
+		{
+			OnDashInput();
+		}
 
-        if (!IsJumping)
+        if (!IsDashing && !IsJumping)
 		{
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
@@ -71,19 +82,19 @@ public class PlayerJumppp : MonoBehaviour
             }		
 
 			
-			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)) //facing yazamadığımız için
-					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )) && !IsWallJumping)
+			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)&& _playerMove.MoveDirection>0) //facing yazamadığımız için
+					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)&& _playerMove.MoveDirection<0 )) && !IsWallJumping)
 				LastOnWallRightTime = Data.coyoteTime;
 
 			
-			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )
-				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) )) && !IsWallJumping)
+			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)&& _playerMove.MoveDirection<0 )
+				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer)&& _playerMove.MoveDirection>0  )) && !IsWallJumping)
 				LastOnWallLeftTime = Data.coyoteTime;
 
 			
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
 		}
-    {
+    
         if (IsJumping && RB.velocity.y < 0)
 		{
 			IsJumping = false;
@@ -102,59 +113,104 @@ public class PlayerJumppp : MonoBehaviour
 
 			_isJumpFalling = false;
 		}
-        
-		if (CanJump() && LastPressedJumpTime > 0)
+        if (!IsDashing)
 		{
-			IsJumping = true;
+			if (CanJump() && LastPressedJumpTime > 0)
+			{
+				IsJumping = true;
+				IsWallJumping = false;
+				_isJumpCut = false;
+				_isJumpFalling = false;
+				Jump();
+
+			
+			}
+			
+			else if (CanWallJump() && LastPressedJumpTime > 0)
+			{
+				IsWallJumping = true;
+				IsJumping = false;
+				_isJumpCut = false;
+				_isJumpFalling = false;
+				_wallJumpStartTime = Time.time;
+				_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
+				WallJump(_lastWallJumpDir);
+			}
+		}
+		//dash
+		if (CanDash() && LastPressedDashTime > 0)
+		{
+			
+			Sleep(Data.dashSleepTime); 
+
+			
+
+
+			IsDashing = true;
+			IsJumping = false;
 			IsWallJumping = false;
 			_isJumpCut = false;
-			_isJumpFalling = false;
-			Jump();
 
-			
+			StartCoroutine(nameof(StartDash), new Vector2(_playerMove.MoveDirection,0));
 		}
-			
-		else if (CanWallJump() && LastPressedJumpTime > 0)
+		if (!_isDashAttacking)
 		{
-			IsWallJumping = true;
-			IsJumping = false;
-			_isJumpCut = false;
-			_isJumpFalling = false;
-			_wallJumpStartTime = Time.time;
-			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
-
-			WallJump(_lastWallJumpDir);
-		}
-    }
-         if (RB.velocity.y < 0 && _moveInput.y < 0)
-		{
+         	if (RB.velocity.y < 0 && _moveInput.y < 0)
+			{
 			
-			SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
-			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
-		}
-		else if (_isJumpCut)
-		{
+				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
+				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
+			}
+			else if (_isJumpCut)
+			{
 			
-			SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
-			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
-		}
-		else if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
-		{
-			SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
-		}
-		else if (RB.velocity.y < 0)
-		{
+				SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
+				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
+			}
+			else if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
+			{
+				SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
+			}
+			else if (RB.velocity.y < 0)
+			{
 			
-			SetGravityScale(Data.gravityScale * Data.fallGravityMult);
-			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
-		}
+				SetGravityScale(Data.gravityScale * Data.fallGravityMult);
+				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
+			}
+			else
+			{
+				SetGravityScale(Data.gravityScale);
+			}
+		} 
 		else
 		{
-			SetGravityScale(Data.gravityScale);
+			SetGravityScale(0);
 		}
-        
     }
+	/*private void FixedUpdate()
+	{
+		//Handle Run
+		if (!IsDashing)
+		{
+			if (IsWallJumping)
+				Run(Data.wallJumpRunLerp);
+			else
+				Run(1);
+		}
+		else if (_isDashAttacking)
+		{
+			Run(Data.dashEndRunLerp);
+		}
 
+		//Handle Slide
+		
+    }
+	*/
+	public void OnDashInput()
+	{
+		LastPressedDashTime = Data.dashInputBufferTime;
+	}
+	
     public void OnJumpInput()
 	{
 		LastPressedJumpTime = Data.jumpInputBufferTime;
@@ -163,6 +219,55 @@ public class PlayerJumppp : MonoBehaviour
 	{
 		if (CanJumpCut() || CanWallJumpCut())
 			_isJumpCut = true;
+	}
+	private IEnumerator StartDash(Vector2 dir)
+	{
+		
+
+		LastOnGroundTime = 0;
+		LastPressedDashTime = 0;
+
+		float startTime = Time.time;
+
+		_dashesLeft--;
+		_isDashAttacking = true;
+
+		SetGravityScale(0);
+
+		
+		while (Time.time - startTime <= Data.dashAttackTime)
+		{
+			print("calsti");
+			RB.velocity = dir.normalized * Data.dashSpeed;
+			
+			yield return null;
+		}
+
+		startTime = Time.time;
+
+		_isDashAttacking = false;
+
+		
+		SetGravityScale(Data.gravityScale);
+		RB.velocity = Data.dashEndSpeed * dir.normalized;
+
+		while (Time.time - startTime <= Data.dashEndTime)
+		{
+			yield return null;
+		}
+
+		
+		IsDashing = false;
+	}
+
+	
+	private IEnumerator RefillDash(int amount)
+	{
+		
+		_dashRefilling = true;
+		yield return new WaitForSeconds(Data.dashRefillTime);
+		_dashRefilling = false;
+		_dashesLeft = Mathf.Min(Data.dashAmount, _dashesLeft + 1);
 	}
     public void SetGravityScale(float scale)
 	{
@@ -204,6 +309,18 @@ public class PlayerJumppp : MonoBehaviour
 		RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
 	}
+	private void Sleep(float duration)
+    {
+		
+		StartCoroutine(nameof(PerformSleep), duration);
+    }
+
+	private IEnumerator PerformSleep(float duration)
+    {
+		Time.timeScale = 0;
+		yield return new WaitForSecondsRealtime(duration); 
+		Time.timeScale = 1;
+	}
     private bool CanJump()
     {
 		return LastOnGroundTime > 0 && !IsJumping;
@@ -220,5 +337,14 @@ public class PlayerJumppp : MonoBehaviour
     private bool CanWallJumpCut()
 	{
 		return IsWallJumping && RB.velocity.y > 0;
+	}
+	private bool CanDash()
+	{
+		if (!IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+		{
+			StartCoroutine(nameof(RefillDash), 1);
+		}
+
+		return _dashesLeft > 0;
 	}
 }
