@@ -11,7 +11,7 @@ public class CombatState : BaseState
     {
         _counter = _enemy.EnemyT.CombatDelay;
         Debug.Log("Entered State: Combat");
-        _animator.Play("Combat");
+        
         base.OnEnter();
     }
     public override void Update()

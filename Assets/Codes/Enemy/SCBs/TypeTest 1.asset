@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TypeTest 1
   m_EditorClassIdentifier: 
   Health: 24
+  MaxDistanceToPlayer: 7
   Damage: 3
   Speed: 3
   TriggerZone: 3.6
@@ -21,5 +22,5 @@ MonoBehaviour:
   PatrollDelay: 1.7
   PatrollMovementSpeed: 2
   AlertTriggerDelay: 0.7
-  CombatDelay: 1.2
+  CombatDelay: 2
   PatrollType: {fileID: 8172308846698029245, guid: 6d8929d2234b228499823da34e898a15, type: 3}

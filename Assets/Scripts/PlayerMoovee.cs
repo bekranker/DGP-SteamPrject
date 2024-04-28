@@ -29,11 +29,11 @@ public class PlayerMoovee : MonoBehaviour
         if (_moveInput.x != 0)
 		{
 			CheckDirectionToFace(_moveInput.x > 0);
-        	_animator.SetFloat("Move", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        	_animator.SetFloat($"{Data._runAnimation}", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
 		}
 		else
 		{
-        	_animator.SetFloat("Move", -1);
+        	_animator.SetFloat($"{Data._runAnimation}", -1);
 		}
         _moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");

@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Grounded _grounded;
-    public Vector2 MoveDirection;
+    public float MoveDirection;
     private Transform _player;
 
     void Start()
@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void MoveTo()
     {
+        MoveDirection = Mathf.Sign(_player.position.x - transform.position.x);
         //Moving
         Debug.Log("Moving");
         transform.position = Vector2.MoveTowards(
@@ -32,7 +33,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool PlayerFarFromUs()
     {
-        return Vector2.Distance(transform.position, _player.transform.position) > _enemy.EnemyT.DistanceToPlayer;
+        return Vector2.Distance(transform.position, _player.transform.position) > _enemy.EnemyT.DistanceToPlayer 
+               && Vector2.Distance(transform.position, _player.transform.position) <= _enemy.EnemyT.MaxDistanceToPlayer;
     }
     public bool PlayerCloseFromUs()
     {

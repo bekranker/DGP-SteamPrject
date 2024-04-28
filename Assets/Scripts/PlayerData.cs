@@ -77,7 +77,8 @@ public class PlayerData : ScriptableObject
 	public float dashRefillTime;
 	[Space(5)]
 	[Range(0.01f, 0.5f)] public float dashInputBufferTime;
-	
+	[Header("Animations")]
+	[SerializeField] public string _runAnimation;
 
 	//Unity Callback, called when the inspector updates
     private void OnValidate()

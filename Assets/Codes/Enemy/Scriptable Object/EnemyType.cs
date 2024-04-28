@@ -20,7 +20,7 @@ public class EnemyType : ScriptableObject
         Health--;
         // Sol tarafta görünecek buton işlemleri
     }
-
+    
     [PropertySpace]
     [BoxGroup("ButtonsHealth", ShowLabel = false)]
     [Button(ButtonSizes.Small, Name = "Increase Health")]
@@ -30,7 +30,27 @@ public class EnemyType : ScriptableObject
         // Sağ tarafta görünecek buton işlemleri
     }
 
+    [PropertySpace]
+    [ShowInInspector, BoxGroup("ButtonsMaxDistanceToPlayer", ShowLabel = false)] 
+    public int MaxDistanceToPlayer;
 
+    [PropertySpace]
+    [BoxGroup("ButtonsMaxDistanceToPlayer", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Decrease Max Distance To Player")]
+    private void ButtonOnLeftMaxDistanceToPlayer()
+    {
+        MaxDistanceToPlayer--;
+        // Sol tarafta görünecek buton işlemleri
+    }
+    
+    [PropertySpace]
+    [BoxGroup("ButtonsMaxDistanceToPlayer", ShowLabel = false)]
+    [Button(ButtonSizes.Small, Name = "Increase Max Distance To Player")]
+    private void ButtonOnRightMaxDistanceToPlayer()
+    {
+        MaxDistanceToPlayer++;
+        // Sağ tarafta görünecek buton işlemleri
+    }
 
     [PropertySpace]
     [ShowInInspector, BoxGroup("ButtonsDamage", ShowLabel = false)] 

@@ -75,3 +75,6 @@ TagManager:
   - name: Shadow
     uniqueID: 3824777491
     locked: 0
+  - name: Canvas
+    uniqueID: 1157951613
+    locked: 0

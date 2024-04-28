@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lab-Bekir.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Menu-Scene.unity
+    guid: 3027836e74b7d704387a6017503f5772
+  - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: 4f0cca33daecedd45b2beacbfed26445
+  - enabled: 1
+    path: Assets/Scenes/WalkinScene.unity
+    guid: 50db041e6b8b95d429908901ab7c9374
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 96715734d56409f4fbb2a7b2360edd6d
+  - enabled: 1
+    path: Assets/Scenes/GamePlay.unity
+    guid: c69b337bb2465c840bac29e13dae1249
   m_configObjects: {}

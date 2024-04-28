@@ -29,15 +29,20 @@ public class EnemyCombat : MonoBehaviour
     
     public void RaycastingToPlayer()
     {
-        var direction = Mathf.Sign(_player.position.x - transform.position.x);
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.right * direction, _rayLength, _playerLayer);
+        
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.right * _enemyMovement.MoveDirection, _rayLength, _playerLayer);
         if (hit2D.collider != null)
         {
             if (hit2D.collider.TryGetComponent(out IDamage damageable))
             {
-                damageable.OnHit(1, direction, _pushForce);
+                damageable.OnHit(1, _enemyMovement.MoveDirection, _pushForce);
             }
         }
+        
+    }
+    public void OnStartAnim()
+    {
+        _enemyMovement.MoveDirection = Mathf.Sign(_player.position.x - transform.position.x);
     }
     private void OnDrawGizmos()
     {

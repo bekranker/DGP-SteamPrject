@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 5343028829310563637}
   _grounded: {fileID: 264132956746238638}
-  MoveDirection: {x: 0, y: 0}
+  MoveDirection: 0
 --- !u!114 &2347938918142575803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285df1451f3dea841980db8c76c5880e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushForce: 0.31
+  _pushForce: 0.7
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
