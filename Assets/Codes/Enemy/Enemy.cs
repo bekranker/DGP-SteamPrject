@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IDamage
     {
         print("Dead");
         OnDeadAction?.Invoke();
+        Destroy(gameObject);
         //destroy or do something else
     }
 

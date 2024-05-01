@@ -12,7 +12,7 @@ public class PlayerMoovee : MonoBehaviour
 	[SerializeField] private Animator _animator;
     public float MoveDirection{ get; private set; }
     public float LastOnGroundTime { get; private set; }
-	public bool CanMove { get; set; }
+	public bool CanMove { get; set;}
 
     private void Awake()
 	{
@@ -26,17 +26,17 @@ public class PlayerMoovee : MonoBehaviour
 
     void Update()
     {
+        _moveInput.x = Input.GetAxisRaw("Horizontal");
+		_moveInput.y = Input.GetAxisRaw("Vertical");
         if (_moveInput.x != 0)
 		{
-			CheckDirectionToFace(_moveInput.x > 0);
+			CheckDirectionToFace(_moveInput.x > 0, _moveInput.x);
         	_animator.SetFloat($"{Data._runAnimation}", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
 		}
 		else
 		{
         	_animator.SetFloat($"{Data._runAnimation}", -1);
 		}
-        _moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
 
         MoveDirection = IsFacingRight ? 1 : -1;
     }
@@ -87,17 +87,17 @@ public class PlayerMoovee : MonoBehaviour
         accelRate*= Data.jumpHangAccelerationMult;
 		targetSpeed *= Data.jumpHangMaxSpeedMult;
     }
-    private void Turn()
+    private void Turn(float direction)
 	{
 		Vector3 scale = transform.localScale; 
-		scale.x *= -1;
+		scale.x = Mathf.Sign(direction);
 		transform.localScale = scale;
 
 		IsFacingRight = !IsFacingRight;
 	}
-    public void CheckDirectionToFace(bool isMovingRight)
+    public void CheckDirectionToFace(bool isMovingRight, float direction)
 	{
 		if (isMovingRight != IsFacingRight)
-			Turn();
+			Turn(direction);
 	}
 }
