@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+	[Header("Movement Props")]
 	public PlayerData Data;
 	//COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
+	public bool CanMove { get; set; }
 
 	//Jump
 	private bool _isJumpCut;// ne kadar uzun tutarsak o kadar fazla zıplıyor
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 	
 
 	// INPUT PARAMETERS
-	private Vector2 _moveInput;//(vector2 2 değer alır genel) karakterin hareket girişini yön saklamak için kullandık.
+	public Vector2 _moveInput; //(vector2 2 değer alır genel) karakterin hareket girişini yon saklamak için kullandık.
 
 	public float LastPressedJumpTime { get; private set; }
 	//en son ne zaman zıplama veya dash tuşuna bastığını takip etmek içn
@@ -77,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		
+		if (!CanMove) return;
         // TIMERS
         LastOnGroundTime -= Time.deltaTime; // oyunun farklı sistemlerinde sabit bir hızda çalışmasını sağlar.
 		LastOnWallTime -= Time.deltaTime;
@@ -88,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 		
 
 		//INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");//karakter kontrol getaxisraw -1 1 arasında deger alıyor getaxis virgüllü
+		_moveInput.x = Input.GetAxisRaw("Horizontal"); //karakter kontrol getaxisraw -1 1 arasında deger alıyor getaxis virgüllü
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
 		if (_moveInput.x != 0)
@@ -263,13 +267,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
+		
+		if (!CanMove) return;
+
 		//Handle Run
 		if (!IsDashing)
 		{
 			if (IsWallJumping)
 				Run(Data.wallJumpRunLerp);
 			else
+			{
 				Run(1);
+			}
 		}
 		else if (_isDashAttacking)
 		{
