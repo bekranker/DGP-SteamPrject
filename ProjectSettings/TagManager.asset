@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trigger
+  - Environment
   layers:
   - Default
   - TransparentFX

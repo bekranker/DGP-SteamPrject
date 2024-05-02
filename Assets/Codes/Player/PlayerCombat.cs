@@ -49,7 +49,7 @@ public class PlayerCombat : MonoBehaviour
             SetAnimation();
         }
     }
-    private void RaycastForAttack()
+    public void RaycastForAttack()
     {
         Collider2D[] hit2D = Physics2D.OverlapBoxAll(transform.position + (Vector3.right * _move.MoveDirection), _length, 0, _hitMaskes);
 

@@ -20,8 +20,9 @@ public class Environment : MonoBehaviour, IDamage
 
     public void OnHit(float damage, float direction, float pushForce)
     {
+        _pivot.rotation = Quaternion.Euler(0, 0, -direction * _rotationSclae);
         transform.DOShakeScale(_punchSpeed, _punchSclae);
-        _pivot.DOShakeRotation(_rotationSclae, _rotationSpeed);
+        _pivot.DORotate(new Vector3(0, 0, 0), _rotationSpeed).SetEase(Ease.InBounce);
         print("Hit");
     }
 }

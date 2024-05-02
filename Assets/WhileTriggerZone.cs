@@ -43,7 +43,7 @@ public class WhileTriggerZone : MonoBehaviour
     {
         DOTween.KillAll();
         Sequence sequence= DOTween.Sequence();
-        _camera.GetComponent<FollowCamera>().enabled = false;
+        //_camera.GetComponent<FollowCamera>().enabled = false;
         sequence.Join(_blackImage.DOFade(1, _fadeOutSpeed));
         sequence.Join(_camera.DOMoveZ(-10, _zoomOutSpeed));
         sequence.OnComplete(() => 
