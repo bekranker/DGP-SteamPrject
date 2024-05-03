@@ -386,7 +386,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 4a315749d63889947987328d494b9018, type: 2}
+  m_Material: {fileID: 6200000, guid: ff008110915a3ca428a49f3e09f9d709, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -430,9 +430,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d809f8156df91f48b461d23c7fb3030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slopeCheckDistance: 2
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  _maxSlopeAngle: 50
+  _noFriction: {fileID: 6200000, guid: ff008110915a3ca428a49f3e09f9d709, type: 2}
+  _fullFriction: {fileID: 6200000, guid: d0e7ab3ce3688c24e873033ed7ec34bf, type: 2}
+  _checkPos: {fileID: 631434007339032666}
   Data: {fileID: 11400000, guid: ea7b21d3ae0552244905e6bb89451870, type: 2}
   _inputHandler: {fileID: 0}
   _animator: {fileID: 543546840074035179}
+  _moveInput: {x: 0, y: 0}
   _groundCheckPoint: {fileID: 631434007339032666}
   _groundCheckSize: {x: 0.49, y: 0.03}
   _frontWallCheckPoint: {fileID: 1336664152923763532}

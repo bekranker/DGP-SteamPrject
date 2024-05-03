@@ -19,14 +19,15 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private InputHandler _inputHandler;
-    [SerializeField] private PlayerMoovee _move;
+    [SerializeField] private PlayerMovement _move;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
 
 
+
+
     private int _animCounter;
     private bool _canAttack;
-
 
     void Awake()
     {
@@ -51,7 +52,7 @@ public class PlayerCombat : MonoBehaviour
     }
     public void RaycastForAttack()
     {
-        Collider2D[] hit2D = Physics2D.OverlapBoxAll(transform.position + (Vector3.right * _move.MoveDirection), _length, 0, _hitMaskes);
+        Collider2D[] hit2D = Physics2D.OverlapBoxAll(transform.position + (Vector3.right * _move._moveInput.x), _length, 0, _hitMaskes);
 
         hit2D?.ForEach((hits) => 
         {
@@ -63,8 +64,8 @@ public class PlayerCombat : MonoBehaviour
                 // _rb.AddForce(Mathf.Sign((hits.transform.position - transform.position).x) * 100 * Vector2.right * _pushForce);
                 
                 // pozisyon degisikligi yapilan versiyonu burada
-                transform.position += Vector3.right * _move.MoveDirection * _pushForce;
-                damageable.OnHit(1, _move.MoveDirection, _pushForce);
+                transform.position += Vector3.right * _move._moveInput.x * _pushForce;
+                damageable.OnHit(1, _move._moveInput.x, _pushForce);
             }
         });
         if (hit2D.Length != 0)
@@ -78,7 +79,7 @@ public class PlayerCombat : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + (Vector3.right * _move.MoveDirection), _length); 
+        //Gizmos.DrawWireCube(transform.position + (Vector3.right * _move.MoveDirection), _length); 
     }
     void SetAnimation()
     {
@@ -96,4 +97,5 @@ public class PlayerCombat : MonoBehaviour
     {
         _move.CanMove = false;
     }
+    
 }

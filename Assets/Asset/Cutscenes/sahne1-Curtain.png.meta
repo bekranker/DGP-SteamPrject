@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffe93c500212b144486131d6174db091
+guid: 1dcb64a18cfd68d42ab8a08f3da5d163
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_0
+      name: sahne1-Curtain_0
       rect:
         serializedVersion: 2
-        x: 348
+        x: 0
         y: 0
-        width: 156
-        height: 284
+        width: 474
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f8dc091f17dac94aa029a10bc51ae15
-      internalID: 1705592410
+      spriteID: 5701e19d79e60ab489efd5d5f3d1d688
+      internalID: -1200488063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne1-Curtain_1
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 0
+        width: 458
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0785caacd6eb13a4b825ee8bbe036584
+      internalID: -273434527
       vertices: []
       indices: 
       edges: []
@@ -128,7 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      2_0: 1705592410
+      sahne1-Curtain_0: -1200488063
+      sahne1-Curtain_1: -273434527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
