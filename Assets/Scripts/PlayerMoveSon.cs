@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Animator _animator;
 	public bool IsSliding { get; private set; }//kayma
 
-	//Timers (also all fields, could be private and a method returning a bool could be used)
+	//timers
 	public float LastOnGroundTime { get; private set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
@@ -113,12 +113,12 @@ public class PlayerMovement : MonoBehaviour
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) 
 			{
-				if(LastOnGroundTime < -0.1f)
+				if(LastOnGroundTime < -0.1f) //zemine temas ettiği anda animasyon yapsın
                 {
 					//AnimHandler.justLanded = true;
                 }
 
-				LastOnGroundTime = Data.coyoteTime; //"coyoteTime"  zeminin dışında zıplama yapmaya devam etme süresini belirtir. 
+				LastOnGroundTime = Data.coyoteTime; //"coyoteTime"  zeminin havada kalma süresi gibi bişe dışında zıplama yapmaya devam etme süresini belirtir.  
             }		
 
 			
@@ -137,11 +137,11 @@ public class PlayerMovement : MonoBehaviour
 		
 
 		//JUMP CHECKS
-		if (IsJumping && RB.velocity.y < 0)
+		if (IsJumping && RB.velocity.y < 0)//yukarı yönlü hızının negatif olduğu durumu kontrol ediyor
 		{
 			IsJumping = false;
 
-			_isJumpFalling = true;
+			_isJumpFalling = true;//düşüş
 		}
 
 		if (IsWallJumping && Time.time - _wallJumpStartTime > Data.wallJumpTime)
@@ -149,14 +149,14 @@ public class PlayerMovement : MonoBehaviour
 			IsWallJumping = false;
 		}
 
-		if (LastOnGroundTime > 0 && !IsJumping && !IsWallJumping)
+		if (LastOnGroundTime > 0 && !IsJumping && !IsWallJumping)//zemine geldiğinde ne zıplama ne de duvardan zıplayıp zıplamama durumunu kontrol eder
         {
 			_isJumpCut = false;
 
 			_isJumpFalling = false;
 		}
 
-		if (!IsDashing)
+		if (!IsDashing) // dash atmadığı durumda zıplama ve duvardan zoplama hareketi
 		{
 			//Jump
 			if (CanJump() && LastPressedJumpTime > 0)
@@ -216,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
 		
 
 		//GRAVITY
-		if (!_isDashAttacking)
+		if (!_isDashAttacking)//dash atarkenki halinde degilse
 		{
 			
 			if (IsSliding)
@@ -226,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
 			else if (RB.velocity.y < 0 && _moveInput.y < 0)
 			{
 				
-				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
+				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);//fastfallgravitiy space basçek yapınca daha hızlı düşüyor
 				
 				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 			}
@@ -294,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpCut = true;
 	}
 
-	public void OnDashInput()
+	public void OnDashInput() //oyuncunun belirli bir zaman aralığında birden fazla kez dash yapma girişini algılar. 
 	{
 		LastPressedDashTime = Data.dashInputBufferTime;
 	}
