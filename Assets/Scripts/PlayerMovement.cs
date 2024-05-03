@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);//scriptable object oldugu için ordan alısn gravity
 		IsFacingRight = true; // karakterin yüzünün ne tarafa döneceği 
+		CanMove = true;
 	}
 
 	private void Update()
