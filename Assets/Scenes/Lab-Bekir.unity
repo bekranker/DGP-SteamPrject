@@ -372,6 +372,18 @@ PrefabInstance:
       propertyPath: _animations.Array.data[2]
       value: 
       objectReference: {fileID: 7400000, guid: 5b7381591dafff54e808c6ddf272dcfa, type: 2}
+    - target: {fileID: 631434007339032666, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322965990566276342, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.736587
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322965990566276342, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.112588406
+      objectReference: {fileID: 0}
     - target: {fileID: 1768066174799941770, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
