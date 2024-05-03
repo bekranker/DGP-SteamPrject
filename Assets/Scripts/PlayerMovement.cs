@@ -81,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 	private void Update()
 	{
 		
-		if (!CanMove) return;
         // TIMERS
         LastOnGroundTime -= Time.deltaTime; // oyunun farklı sistemlerinde sabit bir hızda çalışmasını sağlar.
 		LastOnWallTime -= Time.deltaTime;
@@ -99,18 +98,25 @@ public class PlayerMovement : MonoBehaviour
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if(Input.GetKeyDown(KeyCode.Space))
-        {
-			OnJumpInput();
-        }
-		if (Input.GetKeyUp(KeyCode.Space))//zıplama bırakıldığındaki iptali 
+		if (CanMove)
 		{
-			OnJumpUpInput();
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				OnJumpInput();
+			}
+			if (Input.GetKeyUp(KeyCode.Space))//zıplama bırakıldığındaki iptali 
+			{
+				OnJumpUpInput();
+			}
+			if (Input.GetKeyDown(KeyCode.LeftShift))
+			{
+				OnDashInput();
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			OnDashInput();
-		}
+
+
+
+		
 		//COLLISION CHECKS
 		//karakterin zeminde olup olmadığını ve duvara temas edip etmediğini kontrol eder. 
 		if (!IsDashing && !IsJumping)
