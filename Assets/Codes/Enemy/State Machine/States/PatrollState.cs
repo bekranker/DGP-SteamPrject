@@ -14,6 +14,7 @@ public class PatrollState : BaseState
     }
     public override void OnEnter()
     {
+        _animator.Play("Walk");
         _enemy.Patroll.PatrollEnter();
         Debug.Log("Entered State: Patroll");
         base.OnEnter();

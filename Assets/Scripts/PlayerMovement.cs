@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
-	public bool CanMove { get; set; }
+	public bool CanMove;
 
 	//Jump
 	private bool _isJumpCut;// ne kadar uzun tutarsak o kadar fazla zıplıyor
@@ -71,17 +71,15 @@ public class PlayerMovement : MonoBehaviour
 		//AnimHandler = GetComponent<PlayerAnimator>();
 	}
 
-	private void Start()
+	public void AllStartFunctionsForMovement()
 	{
 		SetGravityScale(Data.gravityScale);//scriptable object oldugu için ordan alısn gravity
 		IsFacingRight = true; // karakterin yüzünün ne tarafa döneceği 
 		CanMove = true;
 	}
-
-	private void Update()
+	public void AllUpdateFunctionsForMovement()
 	{
-		
-        // TIMERS
+		// TIMERS
         LastOnGroundTime -= Time.deltaTime; // oyunun farklı sistemlerinde sabit bir hızda çalışmasını sağlar.
 		LastOnWallTime -= Time.deltaTime;
 		LastOnWallRightTime -= Time.deltaTime;
@@ -96,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
 		if (_moveInput.x != 0)
-			CheckDirectionToFace(_moveInput.x > 0);
+			CheckDirectionToFace();
 
 		if (CanMove)
 		{
@@ -112,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				OnDashInput();
 			}
+			
 		}
 
 
@@ -269,12 +268,9 @@ public class PlayerMovement : MonoBehaviour
 			
 			SetGravityScale(0);
 		}
-		
-    }
-
-    private void FixedUpdate()
+	}
+	public void AllFixedUpdateFunctionsForMovement()
 	{
-		
 		if (!CanMove) return;
 
 		//Handle Run
@@ -295,29 +291,26 @@ public class PlayerMovement : MonoBehaviour
 		//Handle Slide
 		if (IsSliding)
 			Slide();
-    }
-
-    
-	
-    public void OnJumpInput()
+	}
+    private void OnJumpInput()
 	{
 		LastPressedJumpTime = Data.jumpInputBufferTime;
 	}
 
-	public void OnJumpUpInput()
+	private void OnJumpUpInput()
 	{
 		if (CanJumpCut() || CanWallJumpCut())
 			_isJumpCut = true;
 	}
 
-	public void OnDashInput() //oyuncunun belirli bir zaman aralığında birden fazla kez dash yapma girişini algılar. 
+	private void OnDashInput() //oyuncunun belirli bir zaman aralığında birden fazla kez dash yapma girişini algılar. 
 	{
 		LastPressedDashTime = Data.dashInputBufferTime;
 	}
     
 
     // GENERAL METHODS
-    public void SetGravityScale(float scale)
+    private void SetGravityScale(float scale)
 	{
 		RB.gravityScale = scale;
 	}
@@ -337,7 +330,7 @@ public class PlayerMovement : MonoBehaviour
     
 
 	//MOVEMENT METHODS
-   // RUN METHODS
+    //RUN METHODS
     private void Run(float lerpAmount)
 	{
 		
@@ -383,11 +376,11 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 
-	private void Turn()
+	private void Turn(float direction)
 	{
 		
 		Vector3 scale = transform.localScale; 
-		scale.x *= -1;
+		scale.x = direction;
 		transform.localScale = scale;
 
 		IsFacingRight = !IsFacingRight;
@@ -506,33 +499,28 @@ public class PlayerMovement : MonoBehaviour
 
 
     //CHECK METHODS
-    public void CheckDirectionToFace(bool isMovingRight)
+    private void CheckDirectionToFace()
 	{
-		if (isMovingRight != IsFacingRight)
-			Turn();
+		Turn(_moveInput.x);
 	}
 
     private bool CanJump()
     {
 		return LastOnGroundTime > 0 && !IsJumping;
     }
-
 	private bool CanWallJump()
     {
 		return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
 			 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
 	}
-
 	private bool CanJumpCut()
     {
 		return IsJumping && RB.velocity.y > 0;
     }
-
 	private bool CanWallJumpCut()
 	{
 		return IsWallJumping && RB.velocity.y > 0;
 	}
-
 	private bool CanDash()
 	{
 		if (!IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
@@ -542,13 +530,11 @@ public class PlayerMovement : MonoBehaviour
 
 		return _dashesLeft > 0;
 	}
-
-	public bool CanSlide()
+	private bool CanSlide()
     {
 		if (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0)
 			return true;
 		else
 			return false;
 	}
-    
 }

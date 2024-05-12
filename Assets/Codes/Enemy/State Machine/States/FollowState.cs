@@ -10,11 +10,12 @@ public class FollowState : BaseState
     public override void OnEnter()
     {
         Debug.Log("Entered State: Follow");
+        _animator.Play("Walk");
         base.OnEnter();
     }
-    public override void FixedUpdate()
+    public override void Update()
     {
         _enemy.Movement.MoveTo();
-        base.FixedUpdate();
+        base.Update();
     }
 }

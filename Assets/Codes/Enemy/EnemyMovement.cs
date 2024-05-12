@@ -23,6 +23,14 @@ public class EnemyMovement : MonoBehaviour
             transform.position,
             new Vector2(_player.position.x, transform.position.y), 
             _enemy.EnemyT.Speed * Time.deltaTime);
+        if (_player.position.x > transform.position.x)
+        {
+            _enemy.SP.flipX = false;
+        }
+        else
+        {
+            _enemy.SP.flipX = true;
+        }
     }
     public bool CanFollow()
     {
@@ -30,7 +38,11 @@ public class EnemyMovement : MonoBehaviour
                PlayerFarFromUs() &&
                _grounded.MyGround() == _player.GetComponent<Grounded>().MyGround();
     }
-
+    public bool CanFollowArcher()
+    {
+        return 
+               PlayerFarFromUs();
+    }
     public bool PlayerFarFromUs()
     {
         return Vector2.Distance(transform.position, _player.transform.position) > _enemy.EnemyT.DistanceToPlayer 

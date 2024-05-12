@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IDamage
     public EnemyPatroll Patroll;
     public Grounded Ground;
     [SerializeField] private Rigidbody2D _rb;
+    public SpriteRenderer SP;
     public float CurrentHealt {get; set;}
     public static event Action OnHitAction, OnDeadAction;
     public bool Alerted{get; set;}

@@ -14,15 +14,19 @@ public class Environment : MonoBehaviour, IDamage
 
     [SerializeField] private Transform _pivot;
 
+
     public void OnDead()
     {
     }
 
     public void OnHit(float damage, float direction, float pushForce)
     {
+        print(direction);
+        DOTween.Kill(transform);
+        DOTween.Kill(_pivot);
         _pivot.rotation = Quaternion.Euler(0, 0, -direction * _rotationSclae);
-        transform.DOShakeScale(_punchSpeed, _punchSclae);
-        _pivot.DORotate(new Vector3(0, 0, 0), _rotationSpeed).SetEase(Ease.InBounce);
+        //transform.DOShakeScale(_punchSpeed, _punchSclae);
+        _pivot.DORotate(new Vector3(0, 0, 0), _rotationSpeed);
         print("Hit");
     }
 }

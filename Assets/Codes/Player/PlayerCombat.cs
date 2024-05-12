@@ -28,20 +28,19 @@ public class PlayerCombat : MonoBehaviour
 
     private int _animCounter;
     private bool _canAttack;
+    public bool EndAnim;
+    public float Counter = 0.5f;
 
     void Awake()
     {
         _canAttack = true;
     }
 
-    void Update()
-    {
-        Attack();
-    }
-
-    private void Attack()
+    public void Attack()
     {
         if (!_canAttack) return;
+        Counter -= Time.deltaTime;
+        
         if (_inputHandler.AttackInput)
         {
             _move.CanMove = false;
@@ -65,7 +64,8 @@ public class PlayerCombat : MonoBehaviour
                 
                 // pozisyon degisikligi yapilan versiyonu burada
                 transform.position += Vector3.right * _move._moveInput.x * _pushForce;
-                damageable.OnHit(1, _move._moveInput.x, _pushForce);
+                float direction =  Mathf.Sign((hits.transform.position - transform.position).x);
+                damageable.OnHit(1, direction, _pushForce);
             }
         });
         if (hit2D.Length != 0)
@@ -79,19 +79,30 @@ public class PlayerCombat : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireCube(transform.position + (Vector3.right * _move.MoveDirection), _length); 
     }
     void SetAnimation()
     {
+        EndAnim = false;
         _animator.Play(_animations[_animCounter].name);
-        _animCounter = (_animCounter + 1 >= _animations.Count) ? 0 : _animCounter + 1;
+        
+        if (_animCounter + 1 >= _animations.Count)
+        {
+            _animCounter = 0;
+        }
+        else
+            _animCounter += 1;
     }
     public void AnimationEnd()
     {
+        EndAnim = true;
         _move.CanMove = true;
         _canAttack = true;
         _animator.Play(_idleClip.name);
         _rb.gravityScale = 1;
+        if (_animCounter + 1 >= _animations.Count)
+            Counter = 0;
+        else
+            Counter = 0.5f;
     }
     public void AnimationStart()
     {

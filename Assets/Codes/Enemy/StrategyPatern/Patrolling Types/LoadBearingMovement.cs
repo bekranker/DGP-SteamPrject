@@ -30,6 +30,12 @@ public class LoadBearingMovement : Patrolling
             {
                 _canMove = false;
                 _carryDelayCounter -= Time.deltaTime;
+                if (_canInvoke)
+                {
+                    print("idle");
+                    enemy.GetComponent<Animator>().Play("Idle");
+                    _canInvoke = false;
+                }
             }
             else
             {
@@ -49,14 +55,21 @@ public class LoadBearingMovement : Patrolling
     
     private void LoadBearing(Enemy enemy, Animator animator)
     {
-        
-        //animator.Play("Carry");
         Debug.Log("Previous Target Point: " + _targetPosition);
         _targetPosition = TargetPoint(enemy);
+        if (_targetPosition.x > enemy.transform.position.x)
+        {
+            enemy.SP.flipX = false;
+        }
+        else
+        {
+            enemy.SP.flipX = true;
+        }
+        enemy.GetComponent<Animator>().Play("Walk");
         Debug.Log("New Target Point: " + _targetPosition);
-
         _canMove = true;
         _carryDelayCounter = enemy.EnemyT.PatrollDelay;
+        _canInvoke = true;
     }
     private Vector3 TargetPoint(Enemy enemy)
     {

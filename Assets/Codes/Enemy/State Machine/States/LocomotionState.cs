@@ -12,6 +12,7 @@ public class LocomotionState : BaseState
 
     public override void OnEnter()
     {
+        _animator.Play("Idle");
         _counter = _enemy.EnemyT.PatrollDelay;
         _enemy.Alerted = false; 
         Debug.Log("Entered State: Locomotion");

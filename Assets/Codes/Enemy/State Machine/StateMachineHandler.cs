@@ -13,7 +13,7 @@ public class StateMachineHandler : MonoBehaviour
     [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private EnemyCombat _enemyCombat;
     [SerializeField] private EnemyPatroll _enemyPatrol;
-
+    [SerializeField] private bool _melee;
 
 
     private StateMachine _stateMachine;
@@ -29,16 +29,29 @@ public class StateMachineHandler : MonoBehaviour
         var combatState = new CombatState(_enemy, _animator);
         var locomotionState = new LocomotionState(_enemy, _animator);
 
-        
-        At(locomotionState, patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll() && !_enemy.Alerted && _enemy.Locomotion));
-        Any(alertState, new FuncPredicate(() => _enemyMovement.CanFollow() && !_enemy.Alerted));
-        At(alertState, followState, new FuncPredicate(() => _enemyMovement.CanFollow() && _enemy.Alerted));
-        At(followState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()  && _enemyMovement.PlayerCloseFromUs()));
-        At(alertState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat() && _enemy.Alerted));
-        At(combatState, followState, new FuncPredicate(() => _enemy.Alerted && !_enemyCombat.CanCombat()));
-        
 
-        Any(locomotionState, new FuncPredicate(() => (!_enemyMovement.CanFollow() && !_enemyMovement.PlayerCloseFromUs()) && _enemy.Alerted));
+        //melee
+        if (_melee)
+        {
+            At(locomotionState, patrollState, new FuncPredicate(() => _enemyPatrol.CanPatroll() && !_enemy.Alerted && _enemy.Locomotion && _enemyCombat.B_AnimEnd));
+            Any(alertState, new FuncPredicate(() => _enemyMovement.CanFollow() && !_enemy.Alerted));
+            At(alertState, followState, new FuncPredicate(() => _enemyMovement.CanFollow() && _enemy.Alerted && _enemyCombat.B_AnimEnd));
+            At(followState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat()  && _enemyMovement.PlayerCloseFromUs()));
+            At(alertState, combatState, new FuncPredicate(() => _enemyCombat.CanCombat() && _enemy.Alerted));
+            At(combatState, followState, new FuncPredicate(() => _enemy.Alerted && !_enemyCombat.CanCombat() && _enemyCombat.B_AnimEnd));
+
+            Any(locomotionState, new FuncPredicate(() => (!_enemyMovement.CanFollow() && !_enemyMovement.PlayerCloseFromUs()) && _enemy.Alerted && _enemyCombat.B_AnimEnd));
+        
+        }
+        //archer
+        else
+        {
+            At(locomotionState, patrollState, new FuncPredicate(() => !_enemyMovement.CanFollowArcher() && !_enemy.Alerted && _enemy.Locomotion && _enemyCombat.B_AnimEnd));
+            Any(alertState, new FuncPredicate(() => _enemyMovement.CanFollowArcher() && !_enemy.Alerted));
+            At(alertState, combatState, new FuncPredicate(() => _enemyMovement.CanFollowArcher() && _enemy.Alerted));
+            Any(locomotionState, new FuncPredicate(() => (!_enemyMovement.CanFollowArcher() && !_enemyMovement.PlayerCloseFromUs()) && _enemy.Alerted && _enemyCombat.B_AnimEnd));
+        }
+        
         
         _stateMachine.SetState(locomotionState);
     }
