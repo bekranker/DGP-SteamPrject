@@ -198,10 +198,10 @@ public class PlayerMovement : MonoBehaviour
 		//DASH CHECKS
 		if (CanDash() && LastPressedDashTime > 0)
 		{
-			//dash atarken biraz duraksatıyor
+			//dash atarken biraz duraksatiyor
 			Sleep(Data.dashSleepTime); 
 
-			//eğer yöne basılmazsa ileri atlıyo
+			//eger yöne basilmazsa ileri atliyo
 			if (_moveInput != Vector2.zero)
 				_lastDashDir = _moveInput;
 			else
@@ -236,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
 			else if (RB.velocity.y < 0 && _moveInput.y < 0)
 			{
 				
-				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);//fastfallgravitiy space basçek yapınca daha hızlı düşüyor
+				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);//fastfallgravitiy space bascek yapinca daha hizli dusuyor
 				
 				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 			}
@@ -346,34 +346,19 @@ public class PlayerMovement : MonoBehaviour
 			accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
 		else
 			accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
-		
-
-
 		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
 		{
 			accelRate *= Data.jumpHangAccelerationMult;
 			targetSpeed *= Data.jumpHangMaxSpeedMult;
 		}
-		
-
-		
 		if(Data.doConserveMomentum && Mathf.Abs(RB.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
 		{
 			
 			accelRate = 0; 
 		}
-		
-
-		
 		float speedDif = targetSpeed - RB.velocity.x;
-		
-
 		float movement = speedDif * accelRate;
-
-		
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-		
 	}
 
 	private void Turn(float direction)

@@ -5,22 +5,15 @@ using UnityEngine;
 public class EnemyPatroll : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private Patrolling _patrollingType;
-    public Patrolling SpawnedPatrolling;
+    public Patrolling PattrolingTye;
 
-
-
-    void Start()
-    {
-        SpawnedPatrolling = Instantiate(_patrollingType, _enemy.transform);
-    }
     public void Patroll()
     {
-        SpawnedPatrolling.PatrollingFunction(_enemy);
+        PattrolingTye.PatrollingFunction(_enemy);
     }
     public void PatrollEnter()
     {
-        SpawnedPatrolling.PatrollEnterFunction(_enemy, _enemy.GetComponent<Animator>());
+        PattrolingTye.PatrollEnterFunction(_enemy, _enemy.GetComponent<Animator>());
     }
     public bool CanPatroll()
     {
