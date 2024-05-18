@@ -27,9 +27,9 @@ public class PlayerContex : MonoBehaviour
     {
 
         C_PlayerMovementState = new PlayerMovementState();
-        C_PlayerIdleState = new PlayerIdleState();
-        C_PlayerDamageState = new PlayerDamageState();
         C_PlayerCombatState = new PlayerCombatState();
+        C_PlayerDamageState = new PlayerDamageState();
+        C_PlayerIdleState = new PlayerIdleState();
         C_PlayerCustomAnimationState = new PlayerCustomAnimationState();
         TransitionTo(C_PlayerIdleState);
     }

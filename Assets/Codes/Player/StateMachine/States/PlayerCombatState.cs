@@ -19,7 +19,8 @@ public class PlayerCombatState : PlayerState
     public override void ExitState(PlayerState playerState)
     {
         _animCounter = 0;
-        playerState.C_PlayerContex.C_PlayerCombat.CMP_Animator.Play("Idle");
+        playerState.C_PlayerContex.C_PlayerCombat.EndAnim = 0;
+        //playerState.C_PlayerContex.C_PlayerCombat.CMP_Animator.Play("Idle");
     }
 
     public override void OnFixedUpdate(PlayerState playerState)
@@ -67,7 +68,6 @@ public class PlayerCombatState : PlayerState
     
     void SetAnimation(PlayerState playerState)
     {
-        playerState.C_PlayerContex.C_PlayerCombat.EndAnim = false;
         playerState.C_PlayerContex.C_PlayerCombat.CMP_Animator.Play(playerState.C_PlayerContex.C_PlayerCombat.Animations[_animCounter].name);
         
         
@@ -99,7 +99,7 @@ public class PlayerCombatState : PlayerState
             Attack(playerState);
         }
         //if the combat animation is end and the combat counter timer is 0, then we can move
-        if (playerState.C_PlayerContex.C_PlayerCombat.EndAnim && _counter <= 0)
+        if (playerState.C_PlayerContex.C_PlayerCombat.EndAnim == _animCounter || _animCounter == 0)
         {
             if (playerState.C_PlayerContex.C_InputHandler.MoveInput != Vector2.zero)
             {

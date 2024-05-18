@@ -24,17 +24,17 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] public Animator CMP_Animator;
 
     public bool CanAttack;
-    public bool EndAnim;
+    public int EndAnim;
 
     void Awake()
     {
         CanAttack = true;
-        EndAnim = true;
+        EndAnim = 0;
     }
     
     public void AnimationEnd()
     {
-        EndAnim = true;
+        EndAnim++;
         Move.CanMove = true;
         CanAttack = true;
         CMP_Animator.Play(IdleClip.name);

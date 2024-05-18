@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnWallLeftTime -= Time.deltaTime;
 
 		LastPressedJumpTime -= Time.deltaTime;
-		LastPressedDashTime -= Time.deltaTime;
+		LastPressedDashTime -= Time.deltaTime;               	
 		
 
 		//INPUT HANDLER

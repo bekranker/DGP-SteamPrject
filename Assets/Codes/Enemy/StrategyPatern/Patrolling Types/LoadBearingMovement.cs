@@ -55,7 +55,6 @@ public class LoadBearingMovement : Patrolling
     
     private void LoadBearing(Enemy enemy, Animator animator)
     {
-        Debug.Log("Previous Target Point: " + _targetPosition);
         _targetPosition = TargetPoint(enemy);
         if (_targetPosition.x > enemy.transform.position.x)
         {
@@ -66,7 +65,6 @@ public class LoadBearingMovement : Patrolling
             enemy.SP.flipX = true;
         }
         enemy.GetComponent<Animator>().Play("Walk");
-        Debug.Log("New Target Point: " + _targetPosition);
         _canMove = true;
         _carryDelayCounter = enemy.EnemyT.PatrollDelay;
         _canInvoke = true;
