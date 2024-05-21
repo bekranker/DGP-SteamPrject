@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	public PlayerData Data;
 	//COMPONENTS
     public Rigidbody2D RB { get; private set; }
-	//public PlayerAnimator AnimHandler { get; private set; }
+	public PlayerAnimator AnimHandler { get; private set; }
 	
 	//parameters
 	public bool IsFacingRight { get; private set; }//karakterin ne tarafa baktıgını kontrol etmek için
@@ -15,16 +15,18 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsJumping { get; private set; } // zıplama
 	public bool IsWallJumping { get; private set; }//duvardan zıplama
 	public bool IsDashing { get; private set; }//dash
-    [SerializeField] InputHandler _inputHandler;
-	[SerializeField] private Animator _animator;
 	public bool IsSliding { get; private set; }//kayma
+
+    [SerializeField] InputHandler _inputHandler;
+	//[SerializeField] private Animator _animator;
+	public bool CanMove;
 
 	//timers
 	public float LastOnGroundTime { get; private set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
-	public bool CanMove;
+	
 
 	//Jump
 	private bool _isJumpCut;// ne kadar uzun tutarsak o kadar fazla zıplıyor
@@ -68,16 +70,16 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()//starttan bile önce başlar 1 kere çalışır script aktif değilse bile çalıştırır
 	{
 		RB = GetComponent<Rigidbody2D>();
-		//AnimHandler = GetComponent<PlayerAnimator>();
+		AnimHandler = GetComponent<PlayerAnimator>();
 	}
 
-	public void AllStartFunctionsForMovement()
+	public void AllStartFunctionsForMovement() // private void Start()
 	{
 		SetGravityScale(Data.gravityScale);//scriptable object oldugu için ordan alısn gravity
 		IsFacingRight = true; // karakterin yüzünün ne tarafa döneceği 
 		CanMove = true;
 	}
-	public void AllUpdateFunctionsForMovement()
+	public void AllUpdateFunctionsForMovement() //private void Update()
 	{
 		// TIMERS
         LastOnGroundTime -= Time.deltaTime; // oyunun farklı sistemlerinde sabit bir hızda çalışmasını sağlar.
@@ -94,9 +96,9 @@ public class PlayerMovement : MonoBehaviour
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
 		if (_moveInput.x != 0)
-			CheckDirectionToFace();
+			CheckDirectionToFace();// CheckDirectionToFace(_moveInput.x > 0);
 
-		if (CanMove)
+		if (CanMove) //bunu yeni eklemiş
 		{
 			if(Input.GetKeyDown(KeyCode.Space))
 			{
@@ -125,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if(LastOnGroundTime < -0.1f) //zemine temas ettiği anda animasyon yapsın
                 {
-					//AnimHandler.justLanded = true;
+					AnimHandler.justLanded = true;
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //"coyoteTime"  zeminin havada kalma süresi gibi bişe dışında zıplama yapmaya devam etme süresini belirtir.  
@@ -177,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpFalling = false;
 				Jump();
 
-				//AnimHandler.startedJumping = true;
+				AnimHandler.startedJumping = true;
 			}
 			//WALL JUMP
 			else if (CanWallJump() && LastPressedJumpTime > 0)
@@ -269,9 +271,9 @@ public class PlayerMovement : MonoBehaviour
 			SetGravityScale(0);
 		}
 	}
-	public void AllFixedUpdateFunctionsForMovement()
+	public void AllFixedUpdateFunctionsForMovement() //private void FixedUpdate()
 	{
-		if (!CanMove) return;
+		if (!CanMove) return; //bu yok
 
 		//Handle Run
 		if (!IsDashing)
@@ -484,7 +486,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     //CHECK METHODS
-    private void CheckDirectionToFace()
+	//public void CheckDirectionToFace(bool isMovingRight)
+	//{
+	//	if (isMovingRight != IsFacingRight)
+	//		Turn();
+	//}
+    private void CheckDirectionToFace() 
+
 	{
 		Turn(_moveInput.x);
 	}
