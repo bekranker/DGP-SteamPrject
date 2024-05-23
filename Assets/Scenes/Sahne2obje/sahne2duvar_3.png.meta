@@ -1,0 +1,906 @@
+fileFormatVersion: 2
+guid: 3c2d7b79173d011448d3d707f530b2d3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sahne2duvar_3_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 264
+        width: 61
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1c246932f24e749966db1649177f46
+      internalID: 708637344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 313
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab9c1c4443d44e4da112a9e979d38af
+      internalID: 1253737381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_2
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 320
+        width: 57
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a85f853fee189488622cff1e380839
+      internalID: 2132075333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_3
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 313
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e019982566360e141b9816856bbb59e7
+      internalID: -844666213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_4
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 313
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50c6cd970584bf4aa3bf4f688ba5ecf
+      internalID: 1012382131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_5
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 269
+        width: 51
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028d6657931d22341b95ab04e5b8f297
+      internalID: -1010619078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_6
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 269
+        width: 51
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3c1c7e966dcb74f9d96bf6a5a82a21
+      internalID: 220086892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_7
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 309
+        width: 136
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a380b42f500a1ec4c976b33169786c45
+      internalID: 849673917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 242
+        width: 33
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726468cca4b163b4ab6c4ff2838eebe8
+      internalID: -2085835741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_9
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 287
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f539e32e3d31443901be92bfe45c8e
+      internalID: -834687643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_10
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 261
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d828cd7cdfcc9745b1b9ba0cd95a2e0
+      internalID: -452647927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_11
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 238
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b46a4340ed6ed438ab4b3f2bb80633
+      internalID: -201645893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 236
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cca18dad543e5142934511344fc8ece
+      internalID: 679013419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 238
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c282a7588c9b034bb4e36bb3a9932c0
+      internalID: -1673275749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_14
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 259
+        width: 37
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8061846efdc14bd44a2242bfa24cb554
+      internalID: -1143984375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_15
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 239
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235a22963f9733d4c89e8001de8853d2
+      internalID: -1058321800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_16
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 257
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a2d720032227841a8190fafacc9e3d
+      internalID: -1994197236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_17
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 257
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a508e5a847d7b4e40844b6c12deaff82
+      internalID: 964402052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_18
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 257
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cce3e7d4f2ab6e4caf94a9f373a7458
+      internalID: 1393911541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_19
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 240
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f97a3838a25c149b49a34e9792abc1
+      internalID: -253480666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_20
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 240
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90982c511430e0e49adc265a9e80a677
+      internalID: -158128320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_21
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 207
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4472eb77be3ba1a44b55c9f525ab112d
+      internalID: -1926243799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_22
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 207
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413148b1a1a94a74abc407a83495c05a
+      internalID: 1571517007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_23
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 185
+        width: 126
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa50459c3c9dac34a8a9adafb8f7b9f7
+      internalID: -55229264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_24
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 198
+        width: 39
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1d345f380912f4dabdf487af5e5dd8
+      internalID: 1634485743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_25
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 189
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45ed2336da9acb4a883b2279b02e5ab
+      internalID: -13748081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_26
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 190
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5980b736be18e714f97193072a69a464
+      internalID: 1585630571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_27
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 161
+        width: 61
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987def527af480d46b253cf3bc24f145
+      internalID: -1179163481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_28
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 176
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61272b09cb249964a987e1238d13fee1
+      internalID: -1028047624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_29
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 161
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cc478eb86503a40b0fb27670dcf486
+      internalID: -1225524358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_30
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 161
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f1509ab686c9248a6224f71aff1b31
+      internalID: 1698863222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_31
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 159
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173fa6239debbe248ab20637219b2f75
+      internalID: -212402658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_32
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 159
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9f23945ae72ad4ca3a2a479bb6ff84
+      internalID: -1319879612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 41
+        width: 77
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d45daaf68620aec41955d95efad3828e
+      internalID: 542930115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_34
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 92
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd22aa3e3c263584c87dc013a77a18b4
+      internalID: 1975362457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sahne2duvar_3_35
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 94
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d16414e3f90f2c41b76e8ed6e2899f0
+      internalID: 32725533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sahne2duvar_3_0: 708637344
+      sahne2duvar_3_1: 1253737381
+      sahne2duvar_3_10: -452647927
+      sahne2duvar_3_11: -201645893
+      sahne2duvar_3_12: 679013419
+      sahne2duvar_3_13: -1673275749
+      sahne2duvar_3_14: -1143984375
+      sahne2duvar_3_15: -1058321800
+      sahne2duvar_3_16: -1994197236
+      sahne2duvar_3_17: 964402052
+      sahne2duvar_3_18: 1393911541
+      sahne2duvar_3_19: -253480666
+      sahne2duvar_3_2: 2132075333
+      sahne2duvar_3_20: -158128320
+      sahne2duvar_3_21: -1926243799
+      sahne2duvar_3_22: 1571517007
+      sahne2duvar_3_23: -55229264
+      sahne2duvar_3_24: 1634485743
+      sahne2duvar_3_25: -13748081
+      sahne2duvar_3_26: 1585630571
+      sahne2duvar_3_27: -1179163481
+      sahne2duvar_3_28: -1028047624
+      sahne2duvar_3_29: -1225524358
+      sahne2duvar_3_3: -844666213
+      sahne2duvar_3_30: 1698863222
+      sahne2duvar_3_31: -212402658
+      sahne2duvar_3_32: -1319879612
+      sahne2duvar_3_33: 542930115
+      sahne2duvar_3_34: 1975362457
+      sahne2duvar_3_35: 32725533
+      sahne2duvar_3_4: 1012382131
+      sahne2duvar_3_5: -1010619078
+      sahne2duvar_3_6: 220086892
+      sahne2duvar_3_7: 849673917
+      sahne2duvar_3_8: -2085835741
+      sahne2duvar_3_9: -834687643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
