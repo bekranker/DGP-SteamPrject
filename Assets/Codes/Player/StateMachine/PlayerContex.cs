@@ -6,7 +6,6 @@ public class PlayerContex : MonoBehaviour
 {
     public PlayerCombat C_PlayerCombat;
     public PlayerMovement C_PlayerMovement;
-    public Animator CMP_Animator;
     public InputHandler C_InputHandler;
     public Rigidbody2D CMP_Rb;
     private PlayerState _playerState;

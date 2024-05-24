@@ -6,7 +6,6 @@ public class PlayerDamageState : PlayerState
 {
     public override void EnterState(PlayerState playerState)
     {
-        playerState.C_PlayerContex.CMP_Animator.Play("Hit");
     }
 
     public override void ExitState(PlayerState playerState)

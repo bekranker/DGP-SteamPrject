@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 	public PlayerData Data;
 	//COMPONENTS
     public Rigidbody2D RB { get; private set; }
-	public PlayerAnimator AnimHandler { get; private set; }
 	
 	//parameters
 	public bool IsFacingRight { get; private set; }//karakterin ne tarafa baktıgını kontrol etmek için
@@ -70,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()//starttan bile önce başlar 1 kere çalışır script aktif değilse bile çalıştırır
 	{
 		RB = GetComponent<Rigidbody2D>();
-		AnimHandler = GetComponent<PlayerAnimator>();
 	}
 
 	public void AllStartFunctionsForMovement() // private void Start()
@@ -127,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if(LastOnGroundTime < -0.1f) //zemine temas ettiği anda animasyon yapsın
                 {
-					AnimHandler.justLanded = true;
+					//AnimHandler.justLanded = true;
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //"coyoteTime"  zeminin havada kalma süresi gibi bişe dışında zıplama yapmaya devam etme süresini belirtir.  
@@ -179,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpFalling = false;
 				Jump();
 
-				AnimHandler.startedJumping = true;
+				//AnimHandler.startedJumping = true;
 			}
 			//WALL JUMP
 			else if (CanWallJump() && LastPressedJumpTime > 0)

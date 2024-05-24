@@ -457,6 +457,10 @@ PrefabInstance:
       propertyPath: _whatIsGround.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4687509937969027506, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
+      propertyPath: _inputHandler
+      value: 
+      objectReference: {fileID: 641728251}
     - target: {fileID: 4760234133627566400, guid: cfdacdf36e07c5f44b68bfb65f498ef0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.69

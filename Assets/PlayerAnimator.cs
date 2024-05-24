@@ -4,89 +4,102 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    private PlayerMovement mov;
-    private Animator anim;
-    private SpriteRenderer spriteRend;
+    private PlayerMovement _mov;
+    private Animator _anim;
 
-   // private DemoManager demoManager;
 
-    [Header("Movement Tilt")]
-    [SerializeField] private float maxTilt;
-    [SerializeField] [Range(0, 1)] private float tiltSpeed;
+    [Header("Props")]
+    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private Grounded _grounded;
+    public float currentVelY;
 
-    [Header("Particle FX")]
-    [SerializeField] private GameObject jumpFX;
-    [SerializeField] private GameObject landFX;
-    private ParticleSystem _jumpParticle;
-    private ParticleSystem _landParticle;
 
+    #region Booleans
     public bool startedJumping {  private get; set; }
     public bool justLanded { private get; set; }
-
-    public float currentVelY;
+    private bool _canPlaySlidingAnim, _canPlayRunAnim, _canPlayIdleAnim;
+    #endregion
 
     private void Start()
     {
-        mov = GetComponent<PlayerMovement>();
-        spriteRend = GetComponentInChildren<SpriteRenderer>();
-        anim = spriteRend.GetComponent<Animator>();
-
-        //demoManager = FindObjectOfType<DemoManager>();
-
-        _jumpParticle = jumpFX.GetComponent<ParticleSystem>();
-        _landParticle = landFX.GetComponent<ParticleSystem>();
+        _canPlaySlidingAnim = true;
+        _canPlayRunAnim = true;
+        _canPlayIdleAnim = true;
+        _mov = GetComponent<PlayerMovement>();
+        _anim = GetComponent<Animator>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        #region Tilt
-        float tiltProgress;
+        #region Sliding Animation
+        // if (_mov.IsSliding)
+        // {
+        //     if (_canPlaySlidingAnim)
+        //     {
+        //         //sliding animation
+        //         _anim.Play("Slide");
+        //         _canPlaySlidingAnim = false;
+        //     }
+        // }
+        // else
+        // {
+        //     _canPlaySlidingAnim = true;
+        // }
 
-        int mult = -1;
-
-        if (mov.IsSliding)
+        if (_mov.IsSliding)
         {
-            tiltProgress = 0.25f;
+            _anim.SetFloat("Sliding", 1);
         }
         else
         {
-            tiltProgress = Mathf.InverseLerp(-mov.Data.runMaxSpeed, mov.Data.runMaxSpeed, mov.RB.velocity.x);
-            mult = (mov.IsFacingRight) ? 1 : -1;
+            _anim.SetFloat("Sliding", -1);
         }
-            
-        float newRot = ((tiltProgress * maxTilt * 2) - maxTilt);
-        float rot = Mathf.LerpAngle(spriteRend.transform.localRotation.eulerAngles.z * mult, newRot, tiltSpeed);
-        spriteRend.transform.localRotation = Quaternion.Euler(0, 0, rot * mult);
+
+
+        #endregion
+        #region Running Animation
+        // if (_inputHandler.MoveInput.x != 0 /* !_combat.IsAttacking */)
+        // {
+        //     if (_canPlayRunAnim)
+        //     {
+        //         //running animation
+        //         _anim.Play("Run");
+        //         _canPlayRunAnim = false;
+        //     }
+        // }
+        // else
+        // {
+        //     _canPlayRunAnim = true;
+        // }
+        if (_inputHandler.MoveInput.x != 0 /* !_combat.IsAttacking */)
+        {
+            _anim.SetFloat("Run", Mathf.Abs(_inputHandler.MoveInput.x));
+        }
+        else
+        {
+            _anim.SetFloat("Run", -1);
+        }
+        
         #endregion
 
-        CheckAnimationState();
-
-        ParticleSystem.MainModule jumpPSettings = _jumpParticle.main;
-      //  jumpPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
-        ParticleSystem.MainModule landPSettings = _landParticle.main;
-       // landPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
+        JumpStates();
     }
 
-    private void CheckAnimationState()
+    private void JumpStates()
     {
-        if (startedJumping)
+        if (_grounded.IsGrounded()/*!mov.isSliding()*/)
         {
-            anim.SetTrigger("Jump");
-            GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
-            Destroy(obj, 1);
-            startedJumping = false;
-            return;
+            _anim.SetFloat("VelocityY", 0);
+            if(_canPlayIdleAnim)
+            {
+                _anim.Play("Idle");
+                _canPlayIdleAnim = false;
+            }
         }
-
-        if (justLanded)
+        else
         {
-            anim.SetTrigger("Land");
-            GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
-            Destroy(obj, 1);
-            justLanded = false;
-            return;
+            _anim.SetFloat("VelocityY", _mov.RB.velocity.y);
+            _canPlayIdleAnim = true;
         }
-
-        anim.SetFloat("Vel Y", mov.RB.velocity.y);
     }
 }

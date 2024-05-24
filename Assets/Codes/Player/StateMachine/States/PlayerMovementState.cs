@@ -23,14 +23,6 @@ public class PlayerMovementState : PlayerState
     {
         playerState.C_PlayerContex.C_PlayerMovement.AllUpdateFunctionsForMovement();
 
-        if (playerState.C_PlayerContex.C_InputHandler.JumpInput)
-        {
-            playerState.C_PlayerContex.CMP_Animator.SetTrigger("Jump");
-        }
-        else
-        {
-            playerState.C_PlayerContex.CMP_Animator.SetFloat("Run", Mathf.Abs(playerState.C_PlayerContex.C_InputHandler.MoveInput.x));
-        }
         if (playerState.C_PlayerContex.CMP_Rb.velocity == Vector2.zero)
         {
             playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerIdleState);

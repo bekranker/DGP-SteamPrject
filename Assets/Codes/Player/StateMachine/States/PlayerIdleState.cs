@@ -6,7 +6,6 @@ public class PlayerIdleState : PlayerState
 {
     public override void EnterState(PlayerState playerState)
     {
-        playerState.C_PlayerContex.CMP_Animator.Play("Idle");
     }
 
     public override void ExitState(PlayerState playerState)
