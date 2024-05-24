@@ -96,13 +96,13 @@ public class PlayerMovement : MonoBehaviour
 		if (_moveInput.x != 0)
 			CheckDirectionToFace();// CheckDirectionToFace(_moveInput.x > 0);
 
-		if (CanMove) //bunu yeni eklemiş
+		if (CanMove) //bunu yeni eklemis
 		{
 			if(Input.GetKeyDown(KeyCode.Space))
 			{
 				OnJumpInput();
 			}
-			if (Input.GetKeyUp(KeyCode.Space))//zıplama bırakıldığındaki iptali 
+			if (Input.GetKeyUp(KeyCode.Space))//ziplama birakildigindaki iptali 
 			{
 				OnJumpUpInput();
 			}
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
 		
 		//COLLISION CHECKS
-		//karakterin zeminde olup olmadığını ve duvara temas edip etmediğini kontrol eder. 
+		//karakterin zeminde olup olmadigini ve duvara temas edip etmedigini kontrol eder. 
 		if (!IsDashing && !IsJumping)
 		{
 			//Ground Check

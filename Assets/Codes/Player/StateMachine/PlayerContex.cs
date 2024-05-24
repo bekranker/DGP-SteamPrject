@@ -34,10 +34,11 @@ public class PlayerContex : MonoBehaviour
     }
     public void TransitionTo(PlayerState state)
     {
-        _playerState?.ExitState(state);
+        if (this._playerState != null)
+            _playerState.ExitState(state);
         this._playerState = state;
         this._playerState.SetContext(this);
-        _playerState?.EnterState(state);
+        _playerState.EnterState(state);
     }
     void Update()
     {

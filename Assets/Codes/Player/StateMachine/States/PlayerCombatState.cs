@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.Utilities;
+using Sirenix.OdinInspector.Editor;
 
 
 public class PlayerCombatState : PlayerState
@@ -9,18 +10,21 @@ public class PlayerCombatState : PlayerState
     private float _attackTimer = 1.5f;
     private float _counter;
     private int _animCounter;
+    private int _combatCounter;
 
     public override void EnterState(PlayerState playerState)
     {
         Attack(playerState);
         _counter = _attackTimer;
+        playerState.C_PlayerContex.CMP_Rb.velocity = new Vector2(0, playerState.C_PlayerContex.CMP_Rb.velocity.y);
+        _combatCounter = 0;
     }
 
     public override void ExitState(PlayerState playerState)
     {
         _animCounter = 0;
-        playerState.C_PlayerContex.C_PlayerCombat.EndAnim = 0;
-        //playerState.C_PlayerContex.C_PlayerCombat.CMP_Animator.Play("Idle");
+        playerState.C_PlayerContex.C_PlayerCombat.EndAnim = false;
+        _combatCounter = 0;
     }
 
     public override void OnFixedUpdate(PlayerState playerState)
@@ -36,6 +40,7 @@ public class PlayerCombatState : PlayerState
             playerState.C_PlayerContex.C_PlayerCombat.CanAttack = false;
             RaycastForAttack(playerState);
             SetAnimation(playerState);
+            playerState.C_PlayerContex.CMP_Rb.velocity = new Vector2(0, playerState.C_PlayerContex.CMP_Rb.velocity.y);
         }
     }
     public void RaycastForAttack(PlayerState playerState)
@@ -68,6 +73,7 @@ public class PlayerCombatState : PlayerState
     
     void SetAnimation(PlayerState playerState)
     {
+        _combatCounter = 0;
         playerState.C_PlayerContex.C_PlayerCombat.CMP_Animator.Play(playerState.C_PlayerContex.C_PlayerCombat.Animations[_animCounter].name);
         
         
@@ -94,17 +100,27 @@ public class PlayerCombatState : PlayerState
             if (_counter <= 0)
             {
                 _animCounter = 0;
-                _counter = _attackTimer;
+                _combatCounter = 0;
             }
+            else
+            {
+                _combatCounter++;
+            }
+            _counter = _attackTimer;
             Attack(playerState);
         }
         //if the combat animation is end and the combat counter timer is 0, then we can move
-        if (playerState.C_PlayerContex.C_PlayerCombat.EndAnim == _animCounter || _animCounter == 0)
+        if (playerState.C_PlayerContex.C_PlayerCombat.EndAnim && _combatCounter == 0)
         {
             if (playerState.C_PlayerContex.C_InputHandler.MoveInput != Vector2.zero)
             {
                 playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerMovementState);
             }
         }
+        Debug.Log(playerState.C_PlayerContex.C_PlayerCombat.EndAnim);
+        Debug.Log(_combatCounter);
+        Debug.Log(_animCounter);
+        Debug.Log(_counter);
+
     }
 }

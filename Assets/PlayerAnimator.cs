@@ -17,13 +17,14 @@ public class PlayerAnimator : MonoBehaviour
     #region Booleans
     public bool startedJumping {  private get; set; }
     public bool justLanded { private get; set; }
-    private bool _canPlaySlidingAnim, _canPlayRunAnim, _canPlayIdleAnim;
+    private bool _canPlaySlidingAnim, _canPlayRunAnim, _canPlayIdleAnim, _canPlayDashAnim;
     #endregion
 
     private void Start()
     {
         _canPlaySlidingAnim = true;
         _canPlayRunAnim = true;
+        _canPlayDashAnim = true;
         _canPlayIdleAnim = true;
         _mov = GetComponent<PlayerMovement>();
         _anim = GetComponent<Animator>();
@@ -31,47 +32,26 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
-        #region Sliding Animation
-        // if (_mov.IsSliding)
-        // {
-        //     if (_canPlaySlidingAnim)
-        //     {
-        //         //sliding animation
-        //         _anim.Play("Slide");
-        //         _canPlaySlidingAnim = false;
-        //     }
-        // }
-        // else
-        // {
-        //     _canPlaySlidingAnim = true;
-        // }
+        #region Dashing Animation
+        
 
-        if (_mov.IsSliding)
+        if (_mov.IsDashing)
         {
-            _anim.SetFloat("Sliding", 1);
+            if (_canPlayDashAnim)
+            {
+                _anim.SetTrigger("Dash");
+                _canPlayDashAnim = false;
+            }
         }
         else
         {
-            _anim.SetFloat("Sliding", -1);
+            _canPlayDashAnim = true;
         }
-
 
         #endregion
         #region Running Animation
-        // if (_inputHandler.MoveInput.x != 0 /* !_combat.IsAttacking */)
-        // {
-        //     if (_canPlayRunAnim)
-        //     {
-        //         //running animation
-        //         _anim.Play("Run");
-        //         _canPlayRunAnim = false;
-        //     }
-        // }
-        // else
-        // {
-        //     _canPlayRunAnim = true;
-        // }
-        if (_inputHandler.MoveInput.x != 0 /* !_combat.IsAttacking */)
+        
+        if (_inputHandler.MoveInput.x != 0 && !_mov.IsSliding && !_mov.IsDashing /* !_combat.IsAttacking */)
         {
             _anim.SetFloat("Run", Mathf.Abs(_inputHandler.MoveInput.x));
         }
@@ -81,10 +61,25 @@ public class PlayerAnimator : MonoBehaviour
         }
         
         #endregion
+        #region Sliding Animation
 
+        if (_mov.IsSliding)
+        {
+            if (_canPlaySlidingAnim)
+            {
+                _anim.SetTrigger("Slide");
+                _canPlaySlidingAnim = false;
+            }
+        }
+        else
+        {
+            _canPlaySlidingAnim = true;
+        }
+
+        #endregion
         JumpStates();
     }
-
+    #region Jump Animation
     private void JumpStates()
     {
         if (_grounded.IsGrounded()/*!mov.isSliding()*/)
@@ -102,4 +97,5 @@ public class PlayerAnimator : MonoBehaviour
             _canPlayIdleAnim = true;
         }
     }
+    #endregion
 }
