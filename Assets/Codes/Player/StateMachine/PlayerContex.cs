@@ -8,13 +8,17 @@ public class PlayerContex : MonoBehaviour
     public PlayerMovement C_PlayerMovement;
     public InputHandler C_InputHandler;
     public Rigidbody2D CMP_Rb;
+    public Animator CMP_Animator;
     private PlayerState _playerState;
     
 
     public PlayerMovementState C_PlayerMovementState {get; set;}
     public PlayerIdleState C_PlayerIdleState {get; set;}
     public PlayerDamageState C_PlayerDamageState {get; set;}
-    public PlayerCombatState C_PlayerCombatState {get; set;}
+    public PlayerCombatStateOne C_PlayerCombatStateOne {get; set;}
+    public PlayerCombatStateTwo C_PlayerCombatStateTwo{get; set;}
+    public PlayerCombatStateThree C_PlayerCombatStateThree{get; set;}
+
     public PlayerCustomAnimationState C_PlayerCustomAnimationState {get; set;}
 
 
@@ -26,7 +30,11 @@ public class PlayerContex : MonoBehaviour
     {
 
         C_PlayerMovementState = new PlayerMovementState();
-        C_PlayerCombatState = new PlayerCombatState();
+        C_PlayerCombatStateOne = new PlayerCombatStateOne();
+        C_PlayerCombatStateTwo = new PlayerCombatStateTwo();
+        C_PlayerCombatStateThree = new PlayerCombatStateThree();
+
+
         C_PlayerDamageState = new PlayerDamageState();
         C_PlayerIdleState = new PlayerIdleState();
         C_PlayerCustomAnimationState = new PlayerCustomAnimationState();

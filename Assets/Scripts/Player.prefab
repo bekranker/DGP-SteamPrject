@@ -529,6 +529,7 @@ MonoBehaviour:
   C_PlayerMovement: {fileID: 3126156516165544936}
   C_InputHandler: {fileID: 0}
   CMP_Rb: {fileID: 2480826488544662264}
+  CMP_Animator: {fileID: 543546840074035179}
 --- !u!114 &4687509937969027506
 MonoBehaviour:
   m_ObjectHideFlags: 0

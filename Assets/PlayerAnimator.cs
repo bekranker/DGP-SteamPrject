@@ -34,7 +34,6 @@ public class PlayerAnimator : MonoBehaviour
     {
         #region Dashing Animation
         
-
         if (_mov.IsDashing)
         {
             if (_canPlayDashAnim)
@@ -51,7 +50,7 @@ public class PlayerAnimator : MonoBehaviour
         #endregion
         #region Running Animation
         
-        if (_inputHandler.MoveInput.x != 0 && !_mov.IsSliding && !_mov.IsDashing /* !_combat.IsAttacking */)
+        if (_inputHandler.MoveInput.x != 0 && !_mov.IsSliding && !_mov.IsDashing)
         {
             _anim.SetFloat("Run", Mathf.Abs(_inputHandler.MoveInput.x));
         }
@@ -63,16 +62,17 @@ public class PlayerAnimator : MonoBehaviour
         #endregion
         #region Sliding Animation
 
-        if (_mov.IsSliding)
+        if (_mov.IsSliding && _inputHandler.MoveInput.x != 0)
         {
             if (_canPlaySlidingAnim)
             {
-                _anim.SetTrigger("Slide");
+                _anim.SetBool("Slide", true);
                 _canPlaySlidingAnim = false;
             }
         }
         else
         {
+            _anim.SetBool("Slide", false);
             _canPlaySlidingAnim = true;
         }
 
@@ -82,7 +82,7 @@ public class PlayerAnimator : MonoBehaviour
     #region Jump Animation
     private void JumpStates()
     {
-        if (_grounded.IsGrounded()/*!mov.isSliding()*/)
+        if (_grounded.IsGrounded())
         {
             _anim.SetFloat("VelocityY", 0);
             if(_canPlayIdleAnim)
@@ -93,8 +93,12 @@ public class PlayerAnimator : MonoBehaviour
         }
         else
         {
-            _anim.SetFloat("VelocityY", _mov.RB.velocity.y);
-            _canPlayIdleAnim = true;
+            if (!_mov.IsDashing && !_mov.IsSliding && _mov.CanMove)
+            {
+                _anim.SetFloat("VelocityY", _mov.RB.velocity.y);
+                _canPlayIdleAnim = true;
+            }
+            
         }
     }
     #endregion

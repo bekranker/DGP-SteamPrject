@@ -6,6 +6,7 @@ public class PlayerIdleState : PlayerState
 {
     public override void EnterState(PlayerState playerState)
     {
+        playerState.C_PlayerContex.CMP_Rb.isKinematic = false;
     }
 
     public override void ExitState(PlayerState playerState)
@@ -22,7 +23,7 @@ public class PlayerIdleState : PlayerState
         playerState.C_PlayerContex.C_PlayerMovement.AllUpdateFunctionsForMovement();
         if (playerState.C_PlayerContex.C_InputHandler.AttackInput)
         {
-            playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerCombatState);
+            playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerCombatStateOne);
         }
         if (playerState.C_PlayerContex.C_InputHandler.MoveInput != Vector2.zero)
         {

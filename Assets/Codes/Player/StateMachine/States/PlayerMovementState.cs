@@ -6,6 +6,7 @@ public class PlayerMovementState : PlayerState
 {
     public override void EnterState(PlayerState playerState)
     {
+        playerState.C_PlayerContex.CMP_Rb.isKinematic = false;
         playerState.C_PlayerContex.C_PlayerMovement.AllStartFunctionsForMovement();
     }
 
@@ -29,7 +30,7 @@ public class PlayerMovementState : PlayerState
         }
         if (playerState.C_PlayerContex.C_InputHandler.AttackInput)
         {
-            playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerCombatState);
+            playerState.C_PlayerContex.TransitionTo(playerState.C_PlayerContex.C_PlayerCombatStateOne);
         }
     }
 }
