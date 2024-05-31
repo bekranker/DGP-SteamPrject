@@ -850,7 +850,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.019631386, y: 2.744542, z: 32.95141}
+  m_LocalPosition: {x: -0.019631386, y: 2.744542, z: 41.93261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1555,7 +1555,7 @@ GameObject:
   - component: {fileID: 712953599}
   - component: {fileID: 712953598}
   m_Layer: 0
-  m_Name: sentence1
+  m_Name: sentence 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6671,7 +6671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &786489925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6769,7 +6769,7 @@ GameObject:
   - component: {fileID: 848588172}
   - component: {fileID: 848588171}
   m_Layer: 0
-  m_Name: scene4
+  m_Name: sentence 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7801,7 +7801,7 @@ GameObject:
   - component: {fileID: 1605472044}
   - component: {fileID: 1605472043}
   m_Layer: 0
-  m_Name: scene3
+  m_Name: sentence 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8489,7 +8489,7 @@ GameObject:
   - component: {fileID: 1888100313}
   - component: {fileID: 1888100312}
   m_Layer: 0
-  m_Name: scene2
+  m_Name: sentence 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8674,11 +8674,11 @@ MonoBehaviour:
     width: 0.09
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -0.02241999, y: -0.018356532, z: 16.589828}
+  - position: {x: -0.02241999, y: -0.018356532, z: 26.813553}
     roll: 0
-  - position: {x: 0, y: 0.5164875, z: 15.421863}
+  - position: {x: 0, y: 0.5164875, z: 15.800052}
     roll: 0
-  - position: {x: 0, y: 0.25807, z: 7.9300046}
+  - position: {x: 0, y: 0.25807, z: 9.036929}
     roll: 0
 --- !u!4 &1996052252
 Transform:
