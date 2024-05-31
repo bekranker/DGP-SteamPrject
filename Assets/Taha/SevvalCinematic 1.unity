@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 193554117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.81, y: 1.62, z: 4.22}
+  m_LocalPosition: {x: -5.79, y: 1.62, z: 4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03808403, y: 2.9132152, z: 42.37197}
+  m_LocalPosition: {x: 0.07456827, y: 2.77119, z: 42.24597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,8 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418e42c7d0405cc48a7b83f63ea53bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Path: {fileID: 0}
-  m_PathPosition: 0.09969849
+  m_Path: {fileID: 742716796}
+  m_PathPosition: 3
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -599,7 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559044622}
   - component: {fileID: 559044621}
-  - component: {fileID: 559044620}
+  - component: {fileID: 559044623}
   m_Layer: 0
   m_Name: Cinematic_Sound
   m_TagString: Untagged
@@ -607,27 +607,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &559044620
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559044619}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &559044621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -739,6 +718,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559044623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559044619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78edaa519dbfb07459d367733c234413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewMusic: {fileID: 0}
+  NewMusics: []
+  Volume: 1
+  Speed: 1
 --- !u!1 &617026560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1079,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &742716794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742716795}
+  - component: {fileID: 742716796}
+  m_Layer: 0
+  m_Name: Dolly Track
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742716795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742716794}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.61, y: 0.22, z: 9.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2074837819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742716796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742716794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Resolution: 20
+  m_Appearance:
+    pathColor: {r: 0, g: 1, b: 0, a: 1}
+    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    width: 0.2
+  m_Looped: 0
+  m_Waypoints:
+  - position: {x: 4.2199802, y: 2.5004234, z: -0.54127693}
+    roll: 0
+  - position: {x: 1.2231321, y: 0.8698797, z: -0.54127693}
+    roll: 0
+  - position: {x: -2.2016735, y: 1.9302585, z: -2.5444489}
+    roll: 0
+  - position: {x: -1.1635153, y: 1.2579749, z: -5.025997}
+    roll: 0
 --- !u!1 &786489924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +2437,7 @@ Transform:
   - {fileID: 2016279882}
   - {fileID: 193554119}
   - {fileID: 430806979}
+  - {fileID: 742716795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &2074837820
@@ -2394,7 +2449,7 @@ PlayableDirector:
   m_GameObject: {fileID: 2074837818}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: a14a3c710f338ac439ed0ae3dc0d4263, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -2403,7 +2458,7 @@ PlayableDirector:
   - key: {fileID: -642880899564370296, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
     value: {fileID: 193554121}
   - key: {fileID: -5215265903499961224, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
-    value: {fileID: 559044620}
+    value: {fileID: 0}
   - key: {fileID: 763932818139042501, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
     value: {fileID: 712953597}
   - key: {fileID: 6137993328236726180, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
@@ -2420,6 +2475,10 @@ PlayableDirector:
     value: {fileID: 1605472042}
   - key: {fileID: -8007547889322186034, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
     value: {fileID: 848588170}
+  - key: {fileID: 8916348316420393715, guid: a14a3c710f338ac439ed0ae3dc0d4263, type: 2}
+    value: {fileID: 193554121}
+  - key: {fileID: -2344320765238830060, guid: a14a3c710f338ac439ed0ae3dc0d4263, type: 2}
+    value: {fileID: 712953597}
   m_ExposedReferences:
     m_References:
     - 73823d07bf7a0754abbbd2436e5d5c07: {fileID: 193554118}

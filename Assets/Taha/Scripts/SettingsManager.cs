@@ -8,6 +8,7 @@ public class SettingsManager : MonoBehaviour
     bool isPause;
     [SerializeField] GameObject SettingsCanvas;
     [SerializeField] GameObject StartPanel;
+    [SerializeField] GameObject OptionsPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +37,16 @@ public class SettingsManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void ExitToDesktopButton()
+    public void Back()
     {
-        Application.Quit();
+        if (StartPanel != null)
+        {
+            PausePressed();
+        }
+        else
+        {
+            OptionsPanel.SetActive(false);
+        }
     }
 
     public void PausePressed()

@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followCamera: {fileID: 0}
+  MaxHealth: 10
   Health: 10
 --- !u!114 &3505950991768849766
 MonoBehaviour:

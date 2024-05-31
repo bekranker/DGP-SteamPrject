@@ -1019,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559044622}
   - component: {fileID: 559044621}
-  - component: {fileID: 559044620}
+  - component: {fileID: 559044623}
   m_Layer: 0
   m_Name: Cinematic_Sound
   m_TagString: Untagged
@@ -1027,27 +1027,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &559044620
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559044619}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &559044621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1159,6 +1138,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559044623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559044619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78edaa519dbfb07459d367733c234413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewMusic: {fileID: 0}
+  NewMusics: []
+  Volume: 1
+  Speed: 1
 --- !u!1 &568723073
 GameObject:
   m_ObjectHideFlags: 0
@@ -8870,7 +8865,7 @@ PlayableDirector:
   - key: {fileID: -642880899564370296, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
     value: {fileID: 193554121}
   - key: {fileID: -5215265903499961224, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
-    value: {fileID: 559044620}
+    value: {fileID: 0}
   - key: {fileID: 763932818139042501, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}
     value: {fileID: 712953597}
   - key: {fileID: 6137993328236726180, guid: 13ae0d5e3efa1894795d1afb90fbc01a, type: 2}

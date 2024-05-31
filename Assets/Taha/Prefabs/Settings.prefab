@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsCanvas: {fileID: 7017444298535345159}
   StartPanel: {fileID: 0}
+  OptionsPanel: {fileID: 5268580255247831493}
 --- !u!1 &1487209595620420263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5627241813621004368, guid: 543b5427a01479e47988d0a3eb765fed, type: 3}
       propertyPath: ButtonUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitToDesktopButton
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 5627241813621004368, guid: 543b5427a01479e47988d0a3eb765fed, type: 3}
       propertyPath: ButtonUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2182,7 +2183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7163646436980177683, guid: 543b5427a01479e47988d0a3eb765fed, type: 3}
       propertyPath: m_text
-      value: Exit
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 7163646436980177683, guid: 543b5427a01479e47988d0a3eb765fed, type: 3}
       propertyPath: m_margin.z
