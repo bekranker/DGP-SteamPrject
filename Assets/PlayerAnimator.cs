@@ -82,7 +82,7 @@ public class PlayerAnimator : MonoBehaviour
     #region Jump Animation
     private void JumpStates()
     {
-        if (_grounded.IsGrounded())
+        if (_grounded.IsGrounded() || _mov.IsSliding)
         {
             _anim.SetFloat("VelocityY", 0);
             if(_canPlayIdleAnim)
