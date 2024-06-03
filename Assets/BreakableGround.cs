@@ -41,8 +41,21 @@ public class BreakableGround : MonoBehaviour
             }
         }
     }
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if(!_canBreake) return;
+        if (other.gameObject.tag == "Player")
+        {
+            if (IsGrounded())
+            {
+                BreakIt();
+                _canBreake= false;
+            }
+        }
+    }
     private void BreakIt()
     {
+        DOTween.KillAll(_spriteRenderer.transform);
         BreakMe.ShakeObject(1, _spriteRenderer.transform, _shakeForce, _shakeDuration, _delay, () => 
         {
             _spriteRenderer.enabled = false; 

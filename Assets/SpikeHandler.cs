@@ -33,11 +33,5 @@ public class SpikeHandler : MonoBehaviour
         sequence.OnComplete(TheLoop);
         sequence.Play();
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            other.GetComponent<IDamage>().OnHit(9999, 0, 0);
-        }
-    }
+   
 }
