@@ -14,7 +14,7 @@ public class EnvironmentEffect : MonoBehaviour
     [SerializeField] private int _frontIndex;
 
 
-    private List<SpriteRenderer> _allEnvironments;
+    private List<SpriteRenderer> _allEnvironments = new List<SpriteRenderer>();
 
 
 
