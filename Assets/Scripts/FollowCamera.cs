@@ -47,6 +47,7 @@ public class FollowCamera : MonoBehaviour
         DOTween.Kill(_zoomParent);
         var sequence = DOTween.Sequence();
         sequence.SetUpdate(true);
+        ScreenShake();
         sequence.Join(_zoomParent.DOMoveZ(_zoomParent.position.z - 2f, _zoomSpeed)).SetEase(Ease.OutFlash);
         sequence.Join(_rotationParent.DORotate(new Vector3(0, 0, 1) * Mathf.Sign(Random.Range(-1, 1)), _zoomSpeed)).SetEase(Ease.InOutSine);
         sequence.Append(_zoomParent.DOMoveZ(_zoomStartPosition.z, _zoomSpeed)).SetEase(Ease.InFlash);
@@ -69,4 +70,10 @@ public class FollowCamera : MonoBehaviour
         }
         
     }
+    public void ScreenShake()
+    {
+        DOTween.Kill(transform);
+        _rotationParent.transform.DOShakePosition(.1f, .5f).SetUpdate(true);
+    }
+
 }

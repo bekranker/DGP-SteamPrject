@@ -12,6 +12,7 @@ public class BreakableGround : MonoBehaviour
     [SerializeField] private bool _fadeOut;
     [SerializeField] private bool _delay;
     [SerializeField] private bool _faded;
+    [SerializeField] private ParticleSystem _touchedVFX;
 
     private bool _canBreake = true;
 
@@ -55,7 +56,8 @@ public class BreakableGround : MonoBehaviour
     }
     private void BreakIt()
     {
-        DOTween.KillAll(_spriteRenderer.transform);
+        DOTween.Kill(_spriteRenderer.transform);
+        Instantiate(_touchedVFX, transform.position + Vector3.down, Quaternion.identity);
         BreakMe.ShakeObject(1, _spriteRenderer.transform, _shakeForce, _shakeDuration, _delay, () => 
         {
             _spriteRenderer.enabled = false; 

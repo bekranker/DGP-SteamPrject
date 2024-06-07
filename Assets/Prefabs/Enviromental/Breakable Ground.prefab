@@ -99,6 +99,7 @@ MonoBehaviour:
   _fadeOut: 1
   _delay: 1
   _faded: 1
+  _touchedVFX: {fileID: 3013939447446639578, guid: ff64e4cf9802de241874f14550b76707, type: 3}
 --- !u!251 &8267185120112309053
 PlatformEffector2D:
   m_ObjectHideFlags: 0

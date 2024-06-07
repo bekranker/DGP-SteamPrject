@@ -24,14 +24,15 @@ public class SpikeHandler : MonoBehaviour
     }
     void TheLoop()
     {
-        Sequence sequence= DOTween.Sequence();
-        
-        sequence.Append(_spikeT.DOMove(_to.position, _inSpeed)).SetEase(Ease.Linear);
-        sequence.Append(DOVirtual.DelayedCall(_delay, () => print("")));
-        sequence.Append(_spikeT.DOMove(_from.position, _outSpeed)).SetEase(Ease.Linear);
-        sequence.Append(DOVirtual.DelayedCall(_delay, () => print("")));
-        sequence.OnComplete(TheLoop);
-        sequence.Play();
+        DOVirtual.DelayedCall(_delay, ()=>
+        {
+            _spikeT.DOMove(_from.position, _outSpeed).SetEase(Ease.Linear).OnComplete(()=>
+            {
+                DOVirtual.DelayedCall(_delay, ()=>
+                {
+                    _spikeT.DOMove(_to.position, _inSpeed).SetEase(Ease.Linear).OnComplete(()=>TheLoop());
+                });
+            });
+        });
     }
-   
 }

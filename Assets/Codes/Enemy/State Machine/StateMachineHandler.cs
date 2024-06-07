@@ -28,7 +28,7 @@ public class StateMachineHandler : MonoBehaviour
         var followState = new FollowState(_enemy, _animator);
         var combatState = new CombatState(_enemy, _animator);
         var locomotionState = new LocomotionState(_enemy, _animator);
-
+        var deadState = new DeadState(_enemy, _animator);
 
         //melee
         if (_melee)

@@ -42,6 +42,7 @@ Transform:
   - {fileID: 2230814580227052223}
   - {fileID: 6679074041014247731}
   - {fileID: 391933983243422417}
+  - {fileID: 7330168352210294032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2098537583624540481
@@ -110,6 +111,11 @@ MonoBehaviour:
   Patroll: {fileID: 6463793442951688524}
   Ground: {fileID: 264132956746238638}
   _rb: {fileID: 2098537583624540481}
+  _bloodVFXHandler: {fileID: -3110316178823953830, guid: c17a476a22acc9c49821002a42240148, type: 3}
+  _bloodVFXPosRight: {fileID: 7330168352210294032}
+  _followCamera: {fileID: 0}
+  _stateMachineHandler: {fileID: 5245297596203322913}
+  _animator: {fileID: 7733001637645405394}
   SP: {fileID: 8341880981701592279}
 --- !u!114 &83681918063261801
 MonoBehaviour:
@@ -447,3 +453,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c2f0126719198458cddaa75954d04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8043875261921356605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7330168352210294032}
+  m_Layer: 6
+  m_Name: Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7330168352210294032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043875261921356605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3684737232814103710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
