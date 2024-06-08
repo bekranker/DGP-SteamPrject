@@ -445,6 +445,19 @@ MonoBehaviour:
   _animator: {fileID: 543546840074035179}
   _playerSTM: {fileID: 6114715984923178250}
   _playerAnimator: {fileID: 4687509937969027506}
+  _deadScreenHandler: {fileID: 0}
+  _teleports: []
+  _footSteps:
+  - {fileID: 8300000, guid: ffcb16d97542f90478bde8c8267e4981, type: 3}
+  - {fileID: 8300000, guid: 1963aad90542793489f945359aae3bdb, type: 3}
+  - {fileID: 8300000, guid: 42644a88746434b479c96b71fede14fd, type: 3}
+  - {fileID: 8300000, guid: d998f7cf2472d7345b4a5035c3a5a4f9, type: 3}
+  - {fileID: 8300000, guid: c0f7050e364cca34bb88dac48d08d740, type: 3}
+  - {fileID: 8300000, guid: 9d858417fe962ee418362c6018215c9c, type: 3}
+  - {fileID: 8300000, guid: 8a236f980a3e6714098d0566ab304edd, type: 3}
+  - {fileID: 8300000, guid: 055a5607e244a0d4c895a281b7e98520, type: 3}
+  - {fileID: 8300000, guid: 8947bd43014f8f84ba27fdd1c8b00678, type: 3}
+  _footStepSoundVolume: 0.66
   MaxHealth: 10
   Health: 10
 --- !u!114 &3126156516165544936

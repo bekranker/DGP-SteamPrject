@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
+using ZilyanusLib.Audio;
 
 public class Player : MonoBehaviour, IDamage
 {
@@ -14,7 +15,9 @@ public class Player : MonoBehaviour, IDamage
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private DeadScreenHandler _deadScreenHandler;
     [SerializeField] private List<Transform> _teleports = new List<Transform>();
-    //[SerializeField]
+    [SerializeField] private List<AudioClip> _footSteps = new List<AudioClip>();
+    [SerializeField] private bool _isScene2;
+    [SerializeField] private float _footStepSoundVolume;
     public float MaxHealth;
     public float Health;
     private bool _dead;
@@ -76,5 +79,11 @@ public class Player : MonoBehaviour, IDamage
         {
             transform.position = _teleports[2].position;
         }
+    }
+    public void FootStepFunction()
+    {
+        if(!_isScene2) return;
+        int index = UnityEngine.Random.Range(0, _footSteps.Count);
+        AudioClass.PlayAudio(_footSteps[index], _footStepSoundVolume);
     }
 }
