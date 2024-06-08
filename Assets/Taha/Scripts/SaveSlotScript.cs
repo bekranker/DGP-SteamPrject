@@ -39,6 +39,6 @@ public class SaveSlotScript : MonoBehaviour
         NormalText.SetActive(false);
         SelectedText.SetActive(true);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LoadingScene");
     }
 }

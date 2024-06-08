@@ -10,7 +10,7 @@ public class LoadBearingMovement : Patrolling
     private Vector3 _targetPosition;
     private bool _canMove, _canInvoke;
     private float _carryDelayCounter;
-
+    BoxCollider2D groundCollider;
 
 
 
@@ -74,7 +74,7 @@ public class LoadBearingMovement : Patrolling
         Vector3 targetPoint;
         Grounded grounded = enemy.Ground;
         GameObject theGround = grounded.MyGround();
-        BoxCollider2D groundCollider = theGround.GetComponent<BoxCollider2D>();
+        groundCollider = theGround.GetComponent<BoxCollider2D>();
         float boundX = groundCollider.bounds.extents.x;
         float boundLeft = (theGround.transform.position.x - boundX);
         float boundRight = (theGround.transform.position.x + boundX);

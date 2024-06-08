@@ -306,8 +306,8 @@ GameObject:
   - component: {fileID: 1322965990566276342}
   - component: {fileID: 2480826488544662264}
   - component: {fileID: 543546840074035179}
-  - component: {fileID: 3126156516165544936}
   - component: {fileID: 5433585718657631463}
+  - component: {fileID: 3126156516165544936}
   - component: {fileID: 3505950991768849766}
   - component: {fileID: 86965464108735653}
   - component: {fileID: 6114715984923178250}
@@ -429,6 +429,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5433585718657631463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215065301196491761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e169b57eb0ebd4588804734aa7a009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followCamera: {fileID: 0}
+  _animator: {fileID: 543546840074035179}
+  _playerSTM: {fileID: 6114715984923178250}
+  _playerAnimator: {fileID: 4687509937969027506}
+  MaxHealth: 10
+  Health: 10
 --- !u!114 &3126156516165544936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,21 +471,6 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &5433585718657631463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215065301196491761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e169b57eb0ebd4588804734aa7a009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _followCamera: {fileID: 0}
-  MaxHealth: 10
-  Health: 10
 --- !u!114 &3505950991768849766
 MonoBehaviour:
   m_ObjectHideFlags: 0

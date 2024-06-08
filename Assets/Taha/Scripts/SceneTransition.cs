@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+
 
 public class SceneTransition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private SceneTransaction _sceneTransaction;
+    [SerializeField] private string _sceneName;
     void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _sceneTransaction.ExitScene().OnComplete(() =>
+        {
+            SceneManager.LoadScene(_sceneName);
+        });
     }
 }

@@ -19,7 +19,7 @@ public class LoadingScreenHandler : MonoBehaviour
 
     [SerializeField] private string _sceneName;
     [SerializeField] private string _sceneDescriptionText;
-
+    [SerializeField] private string _nextSceneName;
 
     IEnumerator Start()
     {
@@ -27,7 +27,7 @@ public class LoadingScreenHandler : MonoBehaviour
         _sceneDescription.text = _sceneDescriptionText;
         DoTransaction(1);
         yield return new WaitForSeconds(5);
-        DoTransaction(0).OnComplete(() => SceneManager.LoadScene("GamePlay"));
+        DoTransaction(0).OnComplete(() => SceneManager.LoadScene(_nextSceneName));
     }
 
 

@@ -526,7 +526,7 @@ MonoBehaviour:
     pharetra, tellus vel convallis posuere, felis massa suscipit massa, quis consectetur
     ante enim vitae nisi.
 
-    
+
 
     In bibendum at ligula in finibus. Nulla maximus
     tincidunt dictum. Nulla ipsum nulla, pretium dapibus sapien vitae, posuere lobortis
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.75
+  m_fontSize: 29.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1092,6 +1092,7 @@ MonoBehaviour:
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
     himenaeos. Aliquam erat volutpat. Vivamus dignissim accumsan urna, sed scelerisque
     tellus rhoncus vitae.
+  _nextSceneName: CutScene1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
