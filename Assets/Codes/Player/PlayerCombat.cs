@@ -24,6 +24,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] public Rigidbody2D Rb;
     [SerializeField] public Animator CMP_Animator;
 
+    [Header("Audios")]
+    [SerializeField] private List<AudioClip> _combatAudios = new List<AudioClip>();
+
     public bool EndAnim;
 
     void Awake()

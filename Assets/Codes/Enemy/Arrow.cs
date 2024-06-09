@@ -16,7 +16,10 @@ public class Arrow : MonoBehaviour
     {
         _canGo = true;
     }
-
+    void Start()
+    {
+        Destroy(gameObject, 3f);
+    }
     void Update()
     {
         if (_canGo)

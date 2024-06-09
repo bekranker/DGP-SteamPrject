@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IDamage
     [SerializeField] private List<Transform> _teleports = new List<Transform>();
     [SerializeField] private List<AudioClip> _footSteps = new List<AudioClip>();
     [SerializeField] private bool _isScene2;
+    [SerializeField] private Rigidbody2D _rigidBody2D;
     [SerializeField] private float _footStepSoundVolume;
     public float MaxHealth;
     public float Health;
@@ -25,17 +26,24 @@ public class Player : MonoBehaviour, IDamage
 
     public void OnDead()
     {
-        print("Dead");
+        _followCamera.ScreenShake();
         _playerSTM.enabled = false;
         _playerAnimator.enabled = false;
         _animator.Play("Dead");
         _animator.SetFloat("VelocityY", 0);
         _animator.SetFloat("Run", 0);
         _animator.SetBool("Slide", false);
-        _deadScreenHandler.DeadScreen();
-        _dead = true;
+        StartCoroutine(DeadSleep());
     }
-
+    private IEnumerator DeadSleep()
+    {
+        yield return new WaitForSeconds(.2f);
+        _rigidBody2D.velocity = Vector2.zero;
+        AudioClass.PlayAudio("deadFX", 1);
+        yield return new WaitForSeconds(3);
+        _dead = true;
+        _deadScreenHandler.DeadScreen();
+    } 
     [Button]
     public async void OnHit(float damage, float direction, float pushForce)
     {

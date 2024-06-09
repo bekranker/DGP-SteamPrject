@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1722417019861073413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4531113377483172406}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4531113377483172406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722417019861073413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.085, y: 0.067, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5239029959540312}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2924715319520742022
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +202,7 @@ Transform:
   - {fileID: 3093471502617723751}
   - {fileID: 518241433682743812}
   - {fileID: 7218610690725828912}
+  - {fileID: 4531113377483172406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4695508297537065822
@@ -257,12 +289,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bdcf81ec070c547bcc264a72f09eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyT: {fileID: 11400000, guid: 1ebe1b3e1a8e0bc439ae3240ac749beb, type: 2}
+  EnemyT: {fileID: 11400000, guid: 1b7c1ae6894025a418ff86274696240c, type: 2}
   Movement: {fileID: 4311583851452409068}
   Combat: {fileID: 3157811701485764399}
   Patroll: {fileID: 7779030312535881100}
   Ground: {fileID: 3311445454454161471}
   _rb: {fileID: 4695508297537065822}
+  _bloodVFXHandler: {fileID: -3110316178823953830, guid: c17a476a22acc9c49821002a42240148, type: 3}
+  _bloodVFXPosRight: {fileID: 4531113377483172406}
+  _followCamera: {fileID: 0}
+  _stateMachineHandler: {fileID: 1636221898924251867}
+  _animator: {fileID: 216774958050740362}
   SP: {fileID: 7832140587694664615}
 --- !u!114 &4311583851452409068
 MonoBehaviour:

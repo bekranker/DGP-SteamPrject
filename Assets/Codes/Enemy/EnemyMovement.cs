@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
     public bool CanFollowArcher()
     {
         return 
-               PlayerFarFromUs() && (Mathf.Abs(transform.position.y - _player.transform.position.y) <= .2f);
+               PlayerFarFromUs() && (Mathf.Abs(transform.position.y - _player.transform.position.y) <= 1f);
     }
     public bool PlayerFarFromUs()
     {

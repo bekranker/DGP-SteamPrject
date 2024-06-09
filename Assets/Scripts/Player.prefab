@@ -457,6 +457,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a236f980a3e6714098d0566ab304edd, type: 3}
   - {fileID: 8300000, guid: 055a5607e244a0d4c895a281b7e98520, type: 3}
   - {fileID: 8300000, guid: 8947bd43014f8f84ba27fdd1c8b00678, type: 3}
+  _isScene2: 0
+  _rigidBody2D: {fileID: 2480826488544662264}
   _footStepSoundVolume: 0.66
   MaxHealth: 10
   Health: 10
